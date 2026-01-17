@@ -9,7 +9,7 @@ import { slokas } from './slokasData';
 function App() {
   const [selectedPrayer, setSelectedPrayer] = useState(null);
   const [selectedSlokaIdx, setSelectedSlokaIdx] = useState(null);
-  const [language, setLanguage] = useState('sanskrit');
+  const [language, setLanguage] = useState('both');
 
   const prayerTitle = selectedPrayer !== null ? prayers[selectedPrayer].title : null;
   const slokaList = prayerTitle && slokas[prayerTitle] ? slokas[prayerTitle] : [];

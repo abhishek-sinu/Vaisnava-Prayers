@@ -183,60 +183,67 @@ async function fetchRange(canto, chapter, startVerse, endVerse, outFile) {
   console.log(`Saved to ${outFile}`);
   console.log(`Any errors logged to ${logFile}`);
 }
+// Prayers by Vyasadeva
+fetchRange(1, 1, 1, 3, './slokas_Vyasadeva.json');
 
-// Prayers by Kardama Muni
-fetchRange(3, 28, 24, 33, './slokas_Kardama_Muni.json');
+// Prayers by Arjuna
+fetchRange(1, 7, 22, 25, './slokas_Arjuna.json');
 
-// Prayers by Devahuti
-fetchRange(3, 33, 2, 8, './slokas_Devahuti.json');
+// Prayers by Queen Kunti
+fetchRange(1, 8, 18, 43, './slokas_Queen_Kunti.json');
+// // Prayers by Kardama Muni
+// fetchRange(3, 28, 24, 33, './slokas_Kardama_Muni.json');
 
-// Prayers by Dhruva
-fetchRange(4, 9, 6, 17, './slokas_Dhruva.json');
+// // Prayers by Devahuti
+// fetchRange(3, 33, 2, 8, './slokas_Devahuti.json');
 
-// Prayers by Maharaja Prthu
-fetchRange(4, 20, 23, 31, './slokas_Maharaja_Prthu.json');
+// // Prayers by Dhruva
+// fetchRange(4, 9, 6, 17, './slokas_Dhruva.json');
 
-// Prayers by Vritrasura
-fetchRange(6, 11, 23, 27, './slokas_Vritrasura.json');
+// // Prayers by Maharaja Prthu
+// fetchRange(4, 20, 23, 31, './slokas_Maharaja_Prthu.json');
 
-// Prayers by King Citraketu
-fetchRange(6, 16, 34, 48, './slokas_King_Citraketu.json');
+// // Prayers by Vritrasura
+// fetchRange(6, 11, 23, 27, './slokas_Vritrasura.json');
 
-// Prayers by Prahlada
-fetchRange(7, 9, 8, 50, './slokas_Prahlada.json');
+// // Prayers by King Citraketu
+// fetchRange(6, 16, 34, 48, './slokas_King_Citraketu.json');
 
-// Prayers by Gajendra
-fetchRange(8, 3, 2, 29, './slokas_Gajendra.json');
+// // Prayers by Prahlada
+// fetchRange(7, 9, 8, 50, './slokas_Prahlada.json');
 
-// Prayers by Satyavrata
-fetchRange(8, 24, 56, 60, './slokas_Satyavrata.json');
+// // Prayers by Gajendra
+// fetchRange(8, 3, 2, 29, './slokas_Gajendra.json');
 
-// Prayers by Demigods
-fetchRange(10, 2, 26, 41, './slokas_Demigods.json');
+// // Prayers by Satyavrata
+// fetchRange(8, 24, 56, 60, './slokas_Satyavrata.json');
 
-// Prayers by Nala Kubera
-fetchRange(10, 10, 29, 38, './slokas_Nala_Kubera.json');
+// // Prayers by Demigods
+// fetchRange(10, 2, 26, 41, './slokas_Demigods.json');
 
-// Prayers by Brahma
-fetchRange(10, 14, 1, 39, './slokas_Brahma.json');
+// // Prayers by Nala Kubera
+// fetchRange(10, 10, 29, 38, './slokas_Nala_Kubera.json');
 
-// Prayers by Wives of Kaliya
-fetchRange(10, 16, 33, 53, './slokas_Wives_of_Kaliya.json');
+// // Prayers by Brahma
+// fetchRange(10, 14, 1, 39, './slokas_Brahma.json');
 
-// Prayers by Indra
-fetchRange(10, 27, 4, 13, './slokas_Indra.json');
+// // Prayers by Wives of Kaliya
+// fetchRange(10, 16, 33, 53, './slokas_Wives_of_Kaliya.json');
 
-// Prayers by Gopis
-fetchRange(10, 31, 1, 19, './slokas_Gopis.json');
+// // Prayers by Indra
+// fetchRange(10, 27, 4, 13, './slokas_Indra.json');
 
-// Prayers by Akrura
-fetchRange(10, 40, 1, 30, './slokas_Akrura.json');
+// // Prayers by Gopis
+// fetchRange(10, 31, 1, 19, './slokas_Gopis.json');
 
-// Prayers by Muchukunda
-fetchRange(10, 51, 45, 57, './slokas_Muchukunda.json');
+// // Prayers by Akrura
+// fetchRange(10, 40, 1, 30, './slokas_Akrura.json');
 
-// Prayers by Rudra (Bana’s Battle)
-fetchRange(10, 63, 40, 44, './slokas_Rudra_Bana_Battle.json');
+// // Prayers by Muchukunda
+// fetchRange(10, 51, 45, 57, './slokas_Muchukunda.json');
 
-// Prayers by Vedas
-fetchRange(10, 87, 21, 41, './slokas_Vedas.json');
+// // Prayers by Rudra (Bana’s Battle)
+// fetchRange(10, 63, 40, 44, './slokas_Rudra_Bana_Battle.json');
+
+// // Prayers by Vedas
+// fetchRange(10, 87, 21, 41, './slokas_Vedas.json');
