@@ -102,22 +102,25 @@ function App() {
               {slokaList.length > 0 && (
                 <div className="mt-4">
                   <h3 className="fw-bold mb-3" style={{ fontSize: 22, color: '#7c4700' }}>Slokas</h3>
-                  <div className="list-group mb-4">
+                  <div className="sloka-chips mb-4" style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
                     {slokaList.map((sloka, idx) => (
                       <button
                         key={sloka.number}
-                        className={`list-group-item list-group-item-action rounded-3 mb-2 border-0 ${selectedSlokaIdx === idx ? 'fw-bold' : ''}`}
+                        className={`sloka-chip ${selectedSlokaIdx === idx ? 'selected' : ''}`}
+                        onClick={() => setSelectedSlokaIdx(idx)}
                         style={{
-                          fontSize: 18,
+                          fontSize: 16,
                           fontFamily: 'serif',
                           fontWeight: selectedSlokaIdx === idx ? 600 : 400,
                           background: selectedSlokaIdx === idx ? 'linear-gradient(90deg, #ecd9b6 80%, #f9f6f1 100%)' : '#f8ecd4',
                           color: selectedSlokaIdx === idx ? '#7c4700' : '#4b2e05',
                           border: selectedSlokaIdx === idx ? '2px solid #b77b1c' : '1px solid #e2c799',
                           boxShadow: selectedSlokaIdx === idx ? '0 4px 16px #e2c79944' : '0 2px 8px #e2c79922',
+                          borderRadius: '16px',
+                          padding: '0.4rem 1rem',
+                          cursor: 'pointer',
                           transition: 'all 0.2s',
                         }}
-                        onClick={() => setSelectedSlokaIdx(idx)}
                       >
                         {sloka.number}
                       </button>
