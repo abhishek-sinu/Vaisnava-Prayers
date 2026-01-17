@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import vedasLogo from './assets/vedas-logo.svg';
 import './App.css';
 import { prayers } from './prayersData';
@@ -13,6 +13,14 @@ function App() {
   const prayerTitle = selectedPrayer !== null ? prayers[selectedPrayer].title : null;
   const slokaList = prayerTitle && slokas[prayerTitle] ? slokas[prayerTitle] : [];
   const selectedSloka = selectedSlokaIdx !== null && slokaList[selectedSlokaIdx] ? slokaList[selectedSlokaIdx] : null;
+
+  // Responsive: show dropdown on mobile, chips on desktop
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 900);
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 900);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   return (
       <>
@@ -102,30 +110,44 @@ function App() {
               {slokaList.length > 0 && (
                 <div className="mt-4">
                   <h3 className="fw-bold mb-3" style={{ fontSize: 22, color: '#7c4700' }}>Slokas</h3>
-                  <div className="sloka-chips mb-4" style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
-                    {slokaList.map((sloka, idx) => (
-                      <button
-                        key={sloka.number}
-                        className={`sloka-chip ${selectedSlokaIdx === idx ? 'selected' : ''}`}
-                        onClick={() => setSelectedSlokaIdx(idx)}
-                        style={{
-                          fontSize: 16,
-                          fontFamily: 'serif',
-                          fontWeight: selectedSlokaIdx === idx ? 600 : 400,
-                          background: selectedSlokaIdx === idx ? 'linear-gradient(90deg, #ecd9b6 80%, #f9f6f1 100%)' : '#f8ecd4',
-                          color: selectedSlokaIdx === idx ? '#7c4700' : '#4b2e05',
-                          border: selectedSlokaIdx === idx ? '2px solid #b77b1c' : '1px solid #e2c799',
-                          boxShadow: selectedSlokaIdx === idx ? '0 4px 16px #e2c79944' : '0 2px 8px #e2c79922',
-                          borderRadius: '16px',
-                          padding: '0.4rem 1rem',
-                          cursor: 'pointer',
-                          transition: 'all 0.2s',
-                        }}
-                      >
-                        {sloka.number}
-                      </button>
-                    ))}
-                  </div>
+                  {isMobile ? (
+                    <select
+                      className="form-select mb-4 sloka-dropdown"
+                      style={{ maxWidth: 320, fontSize: 18, fontFamily: 'serif', background: '#f8ecd4', color: '#7c4700', border: '1.5px solid #e2c799', borderRadius: 12, boxShadow: '0 2px 8px #e2c79922' }}
+                      value={selectedSlokaIdx !== null ? selectedSlokaIdx : ''}
+                      onChange={e => setSelectedSlokaIdx(Number(e.target.value))}
+                    >
+                      <option value="" disabled>Select a Sloka</option>
+                      {slokaList.map((sloka, idx) => (
+                        <option key={sloka.number} value={idx}>{sloka.number}</option>
+                      ))}
+                    </select>
+                  ) : (
+                    <div className="sloka-chips mb-4" style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+                      {slokaList.map((sloka, idx) => (
+                        <button
+                          key={sloka.number}
+                          className={`sloka-chip ${selectedSlokaIdx === idx ? 'selected' : ''}`}
+                          onClick={() => setSelectedSlokaIdx(idx)}
+                          style={{
+                            fontSize: 16,
+                            fontFamily: 'serif',
+                            fontWeight: selectedSlokaIdx === idx ? 600 : 400,
+                            background: selectedSlokaIdx === idx ? 'linear-gradient(90deg, #ecd9b6 80%, #f9f6f1 100%)' : '#f8ecd4',
+                            color: selectedSlokaIdx === idx ? '#7c4700' : '#4b2e05',
+                            border: selectedSlokaIdx === idx ? '2px solid #b77b1c' : '1px solid #e2c799',
+                            boxShadow: selectedSlokaIdx === idx ? '0 4px 16px #e2c79944' : '0 2px 8px #e2c79922',
+                            borderRadius: '16px',
+                            padding: '0.4rem 1rem',
+                            cursor: 'pointer',
+                            transition: 'all 0.2s',
+                          }}
+                        >
+                          {sloka.number}
+                        </button>
+                      ))}
+                    </div>
+                  )}
                 </div>
               )}
               {selectedSloka && (
