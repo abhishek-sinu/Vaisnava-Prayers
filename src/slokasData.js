@@ -1,5 +1,28 @@
+import sukadevaGoswamiSlokas from '../slokas_Sukadeva_Goswami.json' assert { type: 'json' };
+import ladiesOfHastinapuraSlokas from '../slokas_Ladies_of_Hastinapura.json' assert { type: 'json' };
 // src/slokasData.js
 // Sample data for one prayer (Queen Kunti) with Sanskrit, English, and translation
+import bhishmaSlokas from '../slokas_bhishma.json' assert { type: 'json' };
+import kardamaMuniSlokas from '../slokas_Kardama_Muni.json' assert { type: 'json' };
+import devahutiSlokas from '../slokas_Devahuti.json' assert { type: 'json' };
+import dhruvaSlokas from '../slokas_Dhruva.json' assert { type: 'json' };
+import maharajaPrthuSlokas from '../slokas_Maharaja_Prthu.json' assert { type: 'json' };
+import vritrasuraSlokas from '../slokas_Vritrasura.json' assert { type: 'json' };
+import kingCitraketuSlokas from '../slokas_King_Citraketu.json' assert { type: 'json' };
+import prahladaSlokas from '../slokas_Prahlada.json' assert { type: 'json' };
+import gajendraSlokas from '../slokas_Gajendra.json' assert { type: 'json' };
+import satyavrataSlokas from '../slokas_Satyavrata.json' assert { type: 'json' };
+import demigodsSlokas from '../slokas_Demigods.json' assert { type: 'json' };
+import nalaKuberaSlokas from '../slokas_Nala_Kubera.json' assert { type: 'json' };
+import brahmaSlokas from '../slokas_Brahma.json' assert { type: 'json' };
+import wivesOfKaliyaSlokas from '../slokas_Wives_of_Kaliya.json' assert { type: 'json' };
+import indraSlokas from '../slokas_Indra.json' assert { type: 'json' };
+import gopisSlokas from '../slokas_Gopis.json' assert { type: 'json' };
+import akruraSlokas from '../slokas_Akrura.json' assert { type: 'json' };
+import muchukundaSlokas from '../slokas_Muchukunda.json' assert { type: 'json' };
+import rudraBanaBattleSlokas from '../slokas_Rudra_Bana_Battle.json' assert { type: 'json' };
+import vedasSlokas from '../slokas_Vedas.json' assert { type: 'json' };
+
 export const slokas = {
   "Prayers by Vyasadeva": [
     {
@@ -21,6 +44,7 @@ export const slokas = {
       translation: `O expert and thoughtful men, relish Śrīmad-Bhāgavatam, the mature fruit of the desire tree of Vedic literatures. It emanated from the lips of Śrī Śukadeva Gosvāmī. Therefore this fruit has become even more tasteful, although its nectarean juice was already relishable for all, including liberated souls.`
     }
   ],
+  "Prayers by Sukadeva Goswami": sukadevaGoswamiSlokas,
   "Prayers by Arjuna": [
     {
       number: "ŚB 1.7.22",
@@ -180,4 +204,26 @@ export const slokas = {
       english: `śrī-kṛṣṇa kṛṣṇa-sakha vṛṣṇy-ṛṣabhāvani-dhrug-\nrājanya-vaṁśa-dahanānapavarga-vīrya\ngovinda go-dvija-surārti-harāvatāra\nyogeśvarākhila-guro bhagavan namas te`,
     }
   ]
+  ,
+  "Prayers by Ladies of Hastinapura": ladiesOfHastinapuraSlokas,
+  "Prayers by Bhishma": bhishmaSlokas,
+  "Prayers by Kardama Muni": kardamaMuniSlokas,
+  "Prayers by Devahuti": devahutiSlokas,
+  "Prayers by Dhruva": dhruvaSlokas,
+  "Prayers by Maharaja Prthu": maharajaPrthuSlokas,
+  "Prayers by Vritrasura": vritrasuraSlokas,
+  "Prayers by King Citraketu": kingCitraketuSlokas,
+  "Prayers by Prahlada": prahladaSlokas,
+  "Prayers by Gajendra": gajendraSlokas,
+  "Prayers by Satyavrata": satyavrataSlokas,
+  "Prayers by Demigods": demigodsSlokas,
+  "Prayers by Nala Kubera": nalaKuberaSlokas,
+  "Prayers by Brahma": brahmaSlokas,
+  "Prayers by Wives of Kaliya": wivesOfKaliyaSlokas,
+  "Prayers by Indra": indraSlokas,
+  "Prayers by Gopis": gopisSlokas,
+  "Prayers by Akrura": akruraSlokas,
+  "Prayers by Muchukunda": muchukundaSlokas,
+  "Prayers by Rudra (Bana’s Battle)": rudraBanaBattleSlokas,
+  "Prayers by Vedas": vedasSlokas,
 };

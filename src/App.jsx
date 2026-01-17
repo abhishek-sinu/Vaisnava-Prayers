@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import vedasLogo from './assets/vedas-logo.svg';
 import './App.css';
+import SlokaObjectBuilder from './SlokaObjectBuilder';
 import { prayers } from './prayersData';
 import { slokas } from './slokasData';
 
@@ -28,7 +29,7 @@ function App() {
         <div className="container-fluid">
           <a className="navbar-brand d-flex align-items-center gap-2" href="#">
             <img src={vedasLogo} alt="Vedas Logo" width="40" height="40" style={{ borderRadius: 8, boxShadow: '0 2px 8px #e2c79922' }} />
-            <span className="fw-bold" style={{ color: '#7c4700', fontFamily: 'serif', fontSize: 22, letterSpacing: 1 }}>Śrīmad Bhāgavatam Prayers</span>
+            <span className="fw-bold vaisnava-vandana-title" style={{ color: '#7c4700', fontFamily: 'serif', fontSize: 22, letterSpacing: 1, whiteSpace: 'normal', wordBreak: 'break-word' }}>Vaiṣṇava-vandana</span>
           </a>
           <button className="navbar-toggler d-block d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarOffcanvas" aria-controls="sidebarOffcanvas" aria-label="Toggle sidebar">
             <span className="navbar-toggler-icon"></span>
@@ -36,9 +37,9 @@ function App() {
         </div>
       </nav>
       <div className="container-fluid min-vh-100 p-0" style={{ background: 'linear-gradient(120deg, #f9f6f1 60%, #ecd9b6 100%)' }}>
-        <div className="row g-0">
+        <div className="row g-0 main-row">
           {/* Sidebar for desktop */}
-          <aside className="col-md-3 col-lg-2 border-end shadow-sm py-4 px-3 d-none d-md-block" style={{ background: 'linear-gradient(180deg, #f8ecd4 80%, #e2c799 100%)' }}>
+          <aside className="col-md-3 col-lg-2 border-end shadow-sm py-4 px-3 d-none d-md-block sidebar" style={{ background: 'linear-gradient(180deg, #f8ecd4 80%, #e2c799 100%)' }}>
             <h2 className="fw-bold mb-4" style={{ fontFamily: 'serif', color: '#7c4700', letterSpacing: 1 }}>Śrīmad Bhāgavatam Prayers</h2>
             <div className="nav flex-column">
               {prayers.map((prayer, idx) => (
@@ -99,7 +100,7 @@ function App() {
               </div>
             </div>
           </div>
-        <main className="col-md-9 col-lg-10 px-4 py-4" style={{ background: 'linear-gradient(120deg, #f9f6f1 80%, #ecd9b6 100%)' }}>
+        <main className="col-md-9 col-lg-10 px-4 py-4 main-content" style={{ background: 'linear-gradient(120deg, #f9f6f1 80%, #ecd9b6 100%)' }}>
           {selectedPrayer !== null ? (
             <div>
               <h2 className="fw-bold mb-2" style={{ fontFamily: 'serif', fontSize: 32, color: '#7c4700', letterSpacing: 1 }}>{prayers[selectedPrayer].title}</h2>
