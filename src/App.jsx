@@ -26,7 +26,7 @@ const SlokaSlideCard = forwardRef(function SlokaSlideCard({ children }, ref) {
     </div>
   );
 });
-import vedasLogo from './assets/vedas-logo.svg';
+import vaishnavaLogo from './assets/vaishnava-logo.png';
 import './App.css';
 import SlokaObjectBuilder from './SlokaObjectBuilder';
 import { prayers } from './prayersData';
@@ -83,10 +83,16 @@ function App() {
       }
     };
     window.addEventListener('keydown', handleKeyDown);
-    window.addEventListener('wheel', handleWheel, { passive: true });
+    // Only enable scroll navigation on touch devices (mobile/tablet)
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    if (isTouchDevice) {
+      window.addEventListener('wheel', handleWheel, { passive: true });
+    }
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
-      window.removeEventListener('wheel', handleWheel);
+      if (isTouchDevice) {
+        window.removeEventListener('wheel', handleWheel);
+      }
     };
   }, [selectedSlokaIdx, selectedPrayer, slokaList.length]);
 
@@ -95,7 +101,7 @@ function App() {
       <nav className="navbar navbar-expand-lg navbar-light" style={{ background: 'linear-gradient(90deg, #ecd9b6 60%, #f9f6f1 100%)', borderBottom: '2px solid #e2c799' }}>
         <div className="container-fluid">
           <a className="navbar-brand d-flex align-items-center gap-2" href="#">
-            <img src={vedasLogo} alt="Vedas Logo" width="40" height="40" style={{ borderRadius: 8, boxShadow: '0 2px 8px #e2c79922' }} />
+            <img src={vaishnavaLogo} alt="Vaiṣṇava Prayers Logo" width="56" height="56" style={{ borderRadius: 12, boxShadow: '0 2px 8px #e2c79922', background: '#fff' }} />
             <span className="fw-bold vaisnava-vandana-title" style={{ color: '#7c4700', fontFamily: 'serif', fontSize: 22, letterSpacing: 1, whiteSpace: 'normal', wordBreak: 'break-word' }}>Vaiṣṇava-vandana</span>
           </a>
           <button className="navbar-toggler d-block d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarOffcanvas" aria-controls="sidebarOffcanvas" aria-label="Toggle sidebar">
