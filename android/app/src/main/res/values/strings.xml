@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">Vaisnava Vandana</string>
-    <string name="title_activity_main">Vaisnava Vandana</string>
-    <string name="package_name">com.example.vaisnava-vandana</string>
-    <string name="custom_url_scheme">com.example.vaisnava-vandana</string>
+    <string name="app_name">Kṛṣṇa‑vandanā</string>
+    <string name="title_activity_main">Kṛṣṇa‑vandanā</string>
+    <string name="package_name">com.example.krsna-vandana</string>
+    <string name="custom_url_scheme">com.example.krsna-vandana</string>
 </resources>
