@@ -8,7 +8,7 @@ export const prayers = [
   {
     title: "Prayers by Arjuna",
     reference: "1.7.22–25",
-    link: "https://vedabase.io/en/library/sb/1/7/22-25/"
+    link: "https://vedabase.io/en/library/sb/1/7/22/"
   },
   {
     title: "Prayers by Queen Kunti",

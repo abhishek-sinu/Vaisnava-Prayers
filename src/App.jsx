@@ -1,5 +1,31 @@
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef, forwardRef } from 'react';
+
+// Book page-turn animation wrapper component (must be before App)
+const SlokaSlideCard = forwardRef(function SlokaSlideCard({ children }, ref) {
+  const [state, setState] = useState('enter');
+  useEffect(() => {
+    setState('enter');
+    const timeout = setTimeout(() => setState('enter-active'), 10);
+    return () => clearTimeout(timeout);
+  }, []);
+  return (
+    <div
+      ref={ref}
+      className={`card shadow-lg border-0 rounded-4 p-4 mb-5 sloka-card sloka-page-${state}`}
+      style={{
+        background: 'linear-gradient(120deg, #f9f6f1 80%, #ecd9b6 100%)',
+        maxWidth: 900,
+        margin: '2rem auto',
+        willChange: 'opacity',
+        position: 'relative',
+        minHeight: 400,
+      }}
+    >
+      {children}
+    </div>
+  );
+});
 import vedasLogo from './assets/vedas-logo.svg';
 import './App.css';
 import SlokaObjectBuilder from './SlokaObjectBuilder';
@@ -10,6 +36,10 @@ function App() {
   const [selectedPrayer, setSelectedPrayer] = useState(null);
   const [selectedSlokaIdx, setSelectedSlokaIdx] = useState(null);
   const [language, setLanguage] = useState('both');
+  
+  // For slide animation
+  const [slokaAnimKey, setSlokaAnimKey] = useState(0);
+  const slokaCardRef = useRef(null);
 
   const prayerTitle = selectedPrayer !== null ? prayers[selectedPrayer].title : null;
   const slokaList = prayerTitle && slokas[prayerTitle] ? slokas[prayerTitle] : [];
@@ -22,6 +52,43 @@ function App() {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
+
+  // Navigation: handle scroll and arrow keys for sloka navigation
+  useEffect(() => {
+    if (selectedPrayer === null || !slokaList.length) return;
+    const handleKeyDown = (e) => {
+      if (selectedSlokaIdx === null) return;
+      if (
+        (e.key === 'ArrowDown' || e.key === 'ArrowRight') &&
+        selectedSlokaIdx < slokaList.length - 1
+      ) {
+        setSelectedSlokaIdx(idx => idx + 1);
+        setSlokaAnimKey(k => k + 1);
+      } else if (
+        (e.key === 'ArrowUp' || e.key === 'ArrowLeft') &&
+        selectedSlokaIdx > 0
+      ) {
+        setSelectedSlokaIdx(idx => idx - 1);
+        setSlokaAnimKey(k => k + 1);
+      }
+    };
+    const handleWheel = (e) => {
+      if (selectedSlokaIdx === null) return;
+      if (e.deltaY > 0 && selectedSlokaIdx < slokaList.length - 1) {
+        setSelectedSlokaIdx(idx => idx + 1);
+        setSlokaAnimKey(k => k + 1);
+      } else if (e.deltaY < 0 && selectedSlokaIdx > 0) {
+        setSelectedSlokaIdx(idx => idx - 1);
+        setSlokaAnimKey(k => k + 1);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    window.addEventListener('wheel', handleWheel, { passive: true });
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      window.removeEventListener('wheel', handleWheel);
+    };
+  }, [selectedSlokaIdx, selectedPrayer, slokaList.length]);
 
   return (
       <>
@@ -152,7 +219,20 @@ function App() {
                 </div>
               )}
               {selectedSloka && (
-                <div className="card shadow-lg border-0 rounded-4 p-4 mb-5" style={{ background: 'linear-gradient(120deg, #f9f6f1 80%, #ecd9b6 100%)', maxWidth: 900, margin: '2rem auto' }}>
+                <SlokaSlideCard key={slokaAnimKey} ref={slokaCardRef}>
+                  {/* Navigation Arrows */}
+                  {selectedSlokaIdx > 0 && (
+                    <div className="sloka-nav-arrow left" tabIndex={0} onClick={() => { setSelectedSlokaIdx(idx => idx - 1); setSlokaAnimKey(k => k + 1); }}>
+                      <svg viewBox="0 0 24 24"><path d="M15.5 19.5L8.5 12.5L15.5 5.5" stroke="#b77b1c" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/></svg>
+                      <span className="sloka-nav-tooltip">Tip: Use keyboard arrows or scroll on mobile/PC</span>
+                    </div>
+                  )}
+                  {selectedSlokaIdx < slokaList.length - 1 && (
+                    <div className="sloka-nav-arrow right" tabIndex={0} onClick={() => { setSelectedSlokaIdx(idx => idx + 1); setSlokaAnimKey(k => k + 1); }}>
+                      <svg viewBox="0 0 24 24"><path d="M8.5 19.5L15.5 12.5L8.5 5.5" stroke="#b77b1c" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/></svg>
+                      <span className="sloka-nav-tooltip">Tip: Use keyboard arrows or scroll on mobile/PC</span>
+                    </div>
+                  )}
                   <h2 className="card-title text-center mb-4" style={{ fontFamily: 'serif', fontSize: 44, color: '#7c4700' }}>{selectedSloka.number}</h2>
                   <div className="d-flex justify-content-center align-items-center mb-4">
                     <label htmlFor="lang-select" className="fw-bold me-2" style={{ color: '#7c4700' }}>Show:</label>
@@ -183,8 +263,11 @@ function App() {
                   <div className="translation card border-0 rounded-3 p-3 mt-3 mx-auto" style={{ color: '#7c4700', fontSize: 20, maxWidth: 700, background: 'linear-gradient(90deg, #f9f6f1 80%, #ecd9b6 100%)' }}>
                     <b style={{ color: '#b77b1c' }}>Translation:</b> {selectedSloka.translation}
                   </div>
-                </div>
+                </SlokaSlideCard>
               )}
+
+
+
             </div>
           ) : (
             <div className="fw-semibold fs-4 mt-5" style={{ color: '#b77b1c' }}>
