@@ -102,7 +102,7 @@ function App() {
         <div className="container-fluid">
           <a className="navbar-brand d-flex align-items-center gap-2" href="#">
             <img src={vaishnavaLogo} alt="Vaiṣṇava Prayers Logo" width="56" height="56" style={{ borderRadius: 12, boxShadow: '0 2px 8px #e2c79922', background: '#fff' }} />
-            <span className="fw-bold vaisnava-vandana-title" style={{ color: '#7c4700', fontFamily: 'serif', fontSize: 22, letterSpacing: 1, whiteSpace: 'normal', wordBreak: 'break-word' }}>Vaiṣṇava-vandana</span>
+            <span className="fw-bold vaisnava-vandana-title" style={{ color: '#7c4700', fontFamily: 'serif', fontSize: 22, letterSpacing: 1, whiteSpace: 'normal', wordBreak: 'break-word' }}>Kṛṣṇa Vandanā</span>
           </a>
           <button className="navbar-toggler d-block d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarOffcanvas" aria-controls="sidebarOffcanvas" aria-label="Toggle sidebar">
             <span className="navbar-toggler-icon"></span>
