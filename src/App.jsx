@@ -194,93 +194,94 @@ function App() {
   return (
       <>
       <nav className="navbar navbar-expand-lg navbar-light" style={{ background: 'linear-gradient(90deg, #ecd9b6 60%, #f9f6f1 100%)', borderBottom: '2px solid #e2c799', minHeight: 90 }}>
-        <div className="container-fluid d-flex align-items-center justify-content-between" style={{ gap: 24 }}>
+        <div className="container-fluid d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-between navbar-mobile-row" style={{ gap: 8 }}>
           <a className="navbar-brand d-flex align-items-center gap-2" href="#">
             <img src={vaishnavaLogo} alt="Vaiṣṇava Prayers Logo" width="56" height="56" style={{ borderRadius: 12, boxShadow: '0 2px 8px #e2c79922', background: '#fff' }} />
             <span className="fw-bold vaisnava-vandana-title" style={{ color: '#7c4700', fontFamily: 'serif', fontSize: 22, letterSpacing: 1, whiteSpace: 'normal', wordBreak: 'break-word' }}>Kṛṣṇa Vandanā</span>
           </a>
-          {/* Search Bar in Header */}
-          <div className="position-relative flex-grow-1" style={{ width: '100%', maxWidth: '100%', marginLeft: 32, marginRight: 32 }}>
-            <input
-              type="text"
-              className="form-control shadow-lg"
-              placeholder="Search slokas (Sloka number,phrase,without diacritics aham=>ahaṁ etc)..."
-              value={search}
-              onChange={e => {
-                setSearch(e.target.value);
-                setShowSuggestions(true);
-              }}
-              onFocus={() => setShowSuggestions(true)}
-              onBlur={() => setTimeout(() => setShowSuggestions(false), 150)}
-              style={{
-                fontSize: 20,
-                fontFamily: 'serif',
-                borderRadius: 18,
-                border: '2.5px solid #b77b1c',
-                boxShadow: '0 6px 24px #e2c79955',
-                padding: '1.1rem 2rem',
-                width: '100%',
-                background: 'linear-gradient(90deg, #fffbe9 80%, #ecd9b6 100%)',
-                color: '#7c4700',
-                fontWeight: 500,
-                letterSpacing: 1,
-                transition: 'border 0.2s, box-shadow 0.2s',
-              }}
-              autoComplete="off"
-            />
-            {showSuggestions && searchSuggestions.length > 0 && (
-              <div style={{
-                position: 'absolute',
-                top: '100%',
-                left: 0,
-                right: 0,
-                zIndex: 20,
-                background: '#fffbe9',
-                border: '2px solid #b77b1c',
-                borderTop: 'none',
-                maxHeight: 420,
-                overflowY: 'auto',
-                borderRadius: '0 0 18px 18px',
-                boxShadow: '0 8px 32px #e2c79977',
-              }}>
-                {searchSuggestions.map((item, idx) => (
-                  <div
-                    key={item.prayerTitle + item.sloka.number + idx}
-                    className="px-4 py-3 suggestion-item"
-                    style={{
-                      cursor: 'pointer',
-                      borderBottom: '1px solid #ecd9b6',
-                      background: '#fffbe9',
-                      fontSize: 17,
-                      fontFamily: 'Noto Serif, Georgia, serif',
-                      color: '#7c4700',
-                      fontWeight: 500,
-                      transition: 'background 0.2s',
-                    }}
-                    onMouseDown={() => {
-                      // Find the prayer index and sloka index
-                      const prayerIdx = prayers.findIndex(p => p.title === item.prayerTitle);
-                      if (prayerIdx !== -1 && slokas[item.prayerTitle]) {
-                        const slokaIdx = slokas[item.prayerTitle].findIndex(s => s.number === item.sloka.number);
-                        if (slokaIdx !== -1) {
-                          setSelectedPrayer(prayerIdx);
-                          setSelectedSlokaIdx(slokaIdx);
-                          setSearch('');
-                          setShowSuggestions(false);
+          <div className="d-flex w-100 navbar-mobile-search-row align-items-center mt-2 mt-md-0" style={{gap:8}}>
+            <div className="position-relative flex-grow-1 navbar-mobile-search" style={{ width: '100%', maxWidth: '100%', marginLeft: 0, marginRight: 0 }}>
+              <input
+                type="text"
+                className="form-control shadow-lg"
+                placeholder="Search slokas (Sloka number,phrase,without diacritics aham=>ahaṁ etc)..."
+                value={search}
+                onChange={e => {
+                  setSearch(e.target.value);
+                  setShowSuggestions(true);
+                }}
+                onFocus={() => setShowSuggestions(true)}
+                onBlur={() => setTimeout(() => setShowSuggestions(false), 150)}
+                style={{
+                  fontSize: 20,
+                  fontFamily: 'serif',
+                  borderRadius: 18,
+                  border: '2.5px solid #b77b1c',
+                  boxShadow: '0 6px 24px #e2c79955',
+                  padding: '1.1rem 2rem',
+                  width: '100%',
+                  background: 'linear-gradient(90deg, #fffbe9 80%, #ecd9b6 100%)',
+                  color: '#7c4700',
+                  fontWeight: 500,
+                  letterSpacing: 1,
+                  transition: 'border 0.2s, box-shadow 0.2s',
+                }}
+                autoComplete="off"
+              />
+              {showSuggestions && searchSuggestions.length > 0 && (
+                <div style={{
+                  position: 'absolute',
+                  top: '100%',
+                  left: 0,
+                  right: 0,
+                  zIndex: 20,
+                  background: '#fffbe9',
+                  border: '2px solid #b77b1c',
+                  borderTop: 'none',
+                  maxHeight: 420,
+                  overflowY: 'auto',
+                  borderRadius: '0 0 18px 18px',
+                  boxShadow: '0 8px 32px #e2c79977',
+                }}>
+                  {searchSuggestions.map((item, idx) => (
+                    <div
+                      key={item.prayerTitle + item.sloka.number + idx}
+                      className="px-4 py-3 suggestion-item"
+                      style={{
+                        cursor: 'pointer',
+                        borderBottom: '1px solid #ecd9b6',
+                        background: '#fffbe9',
+                        fontSize: 17,
+                        fontFamily: 'Noto Serif, Georgia, serif',
+                        color: '#7c4700',
+                        fontWeight: 500,
+                        transition: 'background 0.2s',
+                      }}
+                      onMouseDown={() => {
+                        // Find the prayer index and sloka index
+                        const prayerIdx = prayers.findIndex(p => p.title === item.prayerTitle);
+                        if (prayerIdx !== -1 && slokas[item.prayerTitle]) {
+                          const slokaIdx = slokas[item.prayerTitle].findIndex(s => s.number === item.sloka.number);
+                          if (slokaIdx !== -1) {
+                            setSelectedPrayer(prayerIdx);
+                            setSelectedSlokaIdx(slokaIdx);
+                            setSearch('');
+                            setShowSuggestions(false);
+                          }
                         }
-                      }
-                    }}
-                  >
-                    <div style={{ fontWeight: 700, color: '#b77b1c', fontSize: 17 }}>{item.sloka.number} <span style={{ color: '#7c4700', fontWeight: 500 }}>({item.prayerTitle})</span></div>
-                    <div style={{ fontSize: 15, color: '#7c4700', fontFamily: 'Noto Serif, Georgia, serif', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{item.sloka.english}</div>
-                  </div>
-                ))}
-              </div>
-            )}
+                      }}
+                    >
+                      <div style={{ fontWeight: 700, color: '#b77b1c', fontSize: 17 }}>{item.sloka.number} <span style={{ color: '#7c4700', fontWeight: 500 }}>({item.prayerTitle})</span></div>
+                      <div style={{ fontSize: 15, color: '#7c4700', fontFamily: 'Noto Serif, Georgia, serif', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{item.sloka.english}</div>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+            <button className="navbar-toggler d-block d-md-none navbar-mobile-hamburger" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarOffcanvas" aria-controls="sidebarOffcanvas" aria-label="Toggle sidebar">
+              <span className="navbar-toggler-icon"></span>
+            </button>
           </div>
-          <button className="navbar-toggler d-block d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarOffcanvas" aria-controls="sidebarOffcanvas" aria-label="Toggle sidebar">
-            <span className="navbar-toggler-icon"></span>
-          </button>
         </div>
       </nav>
       <div className="container-fluid min-vh-100 p-0" style={{ background: 'linear-gradient(120deg, #f9f6f1 60%, #ecd9b6 100%)' }}>
@@ -395,7 +396,7 @@ function App() {
           {/* Sloka Dropdown above main card, centered */}
           {selectedPrayer !== null && slokaList.length > 0 && (
               <div className="d-flex flex-column align-items-center mb-1">
-              <div className="fw-bold mb-2" style={{ fontFamily: 'serif', fontSize: 28, color: '#7c4700', letterSpacing: 1, textAlign: 'center' }}>{prayers[selectedPrayer].title}</div>
+              <div className="fw-bold mb-2 prayers-title-mobile" style={{ fontFamily: 'serif', fontSize: 28, color: '#7c4700', letterSpacing: 1, textAlign: 'center', lineHeight: 1.1 }}>{prayers[selectedPrayer].title}</div>
               <div className="mb-2" style={{ textAlign: 'center' }}>
                 <a
                   href={vedabaseSlokaUrl || prayers[selectedPrayer].link}

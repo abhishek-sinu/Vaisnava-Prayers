@@ -1,3 +1,76 @@
+/* Mobile navbar row: search and hamburger on one line */
+@media (max-width: 600px) {
+  .navbar-mobile-row {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0 !important;
+  }
+  .navbar-mobile-search-row {
+    flex-direction: row !important;
+    align-items: center !important;
+    width: 100% !important;
+    margin-top: 0.2rem !important;
+    margin-bottom: 0.2rem !important;
+    gap: 8px !important;
+  }
+  .navbar-mobile-search {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    min-width: 0 !important;
+    flex: 1 1 0 !important;
+    max-width: 100vw !important;
+  }
+  .navbar-mobile-hamburger {
+    margin-left: 8px !important;
+    margin-right: 0 !important;
+    align-self: stretch !important;
+    height: 44px !important;
+    display: flex !important;
+    align-items: center !important;
+  }
+  .form-control {
+    font-size: 15px !important;
+    padding: 0.7rem 1rem !important;
+    border-radius: 12px !important;
+  }
+}
+.prayers-title-mobile {
+  font-size: 28px;
+  text-align: center;
+  line-height: 1.1;
+  word-break: break-word;
+}
+
+@media (max-width: 600px) {
+  .prayers-title-mobile {
+    font-size: 16px !important;
+    text-align: left !important;
+    max-width: 90vw;
+    line-height: 1.2;
+    margin-bottom: 0.5rem !important;
+    white-space: normal !important;
+  }
+  .sloka-dropdown {
+    font-size: 15px !important;
+    padding: 0.5rem 0.7rem !important;
+    min-width: 0 !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  .form-control {
+    font-size: 15px !important;
+    padding: 0.7rem 1rem !important;
+    border-radius: 12px !important;
+  }
+  .position-relative.flex-grow-1 {
+    margin-left: 8px !important;
+    margin-right: 8px !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+  }
+}
 /* Arrow navigation for sloka card */
 .sloka-nav-arrow {
   position: absolute;
