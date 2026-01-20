@@ -36,8 +36,18 @@ import { slokas } from './slokasData';
 
 function getRandomSlokaFromAll() {
   if (!allSlokasData.length) return null;
-  const idx = Math.floor(Math.random() * allSlokasData.length);
-  return allSlokasData[idx];
+  let tries = 0;
+  let sloka = null;
+  while (tries < 10) {
+    const idx = Math.floor(Math.random() * allSlokasData.length);
+    sloka = allSlokasData[idx];
+    // Check for non-empty sloka (has number and some text)
+    if (sloka && sloka.sloka && (sloka.sloka.number || sloka.sloka.english || sloka.sloka.sanskrit)) {
+      return sloka;
+    }
+    tries++;
+  }
+  return null;
 }
 
 
