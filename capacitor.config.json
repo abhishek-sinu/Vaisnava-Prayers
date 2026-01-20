@@ -1,5 +1,9 @@
 {
   "appId": "com.example.vaisnava-vandana",
   "appName": "Vaiṣṇava‑vandanā",
-  "webDir": "dist"
+  "webDir": "dist",
+  "server": {
+    "url": "https://vaisnava-prayers.vercel.app/",
+    "cleartext": false
+  }
 }
