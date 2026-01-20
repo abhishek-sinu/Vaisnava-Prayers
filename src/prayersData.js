@@ -23,12 +23,12 @@ export const prayers = [
     link: "https://vedabase.io/en/library/sb/1/8/9/"
   },
   {
-    title: "Prayers by Bhīṣma",
+    title: "Prayers by Bhishma",
     reference: "1.9.32–42",
     link: "https://vedabase.io/en/library/sb/1/9/32/"
   },
   {
-    title: "Prayers by Ladies of Hastināpura",
+    title: "Prayers by Ladies of Hastinapura",
     reference: "1.10.21–25",
     link: "https://vedabase.io/en/library/sb/1/10/21/"
   },
@@ -40,7 +40,7 @@ export const prayers = [
 
   // CANTO 2
   {
-    title: "Prayers by Śukadeva Gosvāmī",
+    title: "Prayers by Sukadeva Goswami",
     reference: "2.4.12–23",
     link: "https://vedabase.io/en/library/sb/2/4/12/"
   },
@@ -84,7 +84,7 @@ export const prayers = [
     link: "https://vedabase.io/en/library/sb/4/9/6/"
   },
   {
-    title: "Prayers by Mahārāja Pṛthu",
+    title: "Prayers by Maharaja Prthu",
     reference: "4.20.23–31",
     link: "https://vedabase.io/en/library/sb/4/20/23/"
   },
@@ -127,7 +127,7 @@ export const prayers = [
     link: "https://vedabase.io/en/library/sb/10/2/26/"
   },
   {
-    title: "Prayers by Nala-Kūbera",
+    title: "Prayers by Nala Kubera",
     reference: "10.10.29–38",
     link: "https://vedabase.io/en/library/sb/10/10/29/"
   },
@@ -137,7 +137,7 @@ export const prayers = [
     link: "https://vedabase.io/en/library/sb/10/14/1/"
   },
   {
-    title: "Prayers by the Wives of Kāliya",
+    title: "Prayers by Wives of Kaliya",
     reference: "10.16.33–53",
     link: "https://vedabase.io/en/library/sb/10/16/33/"
   },
@@ -147,7 +147,7 @@ export const prayers = [
     link: "https://vedabase.io/en/library/sb/10/27/4/"
   },
   {
-    title: "Prayers by the Gopīs (Gopī-gīta)",
+    title: "Prayers by Gopis",
     reference: "10.31.1–19",
     link: "https://vedabase.io/en/library/sb/10/31/1/"
   },
@@ -162,12 +162,12 @@ export const prayers = [
     link: "https://vedabase.io/en/library/sb/10/51/45/"
   },
   {
-    title: "Prayers by Rudra (Bāṇa’s Battle)",
+    title: "Prayers by Rudra (Bana’s Battle)",
     reference: "10.63.40–44",
     link: "https://vedabase.io/en/library/sb/10/63/40/"
   },
   {
-    title: "Prayers by the Vedas",
+    title: "Prayers by Vedas",
     reference: "10.87.21–41",
     link: "https://vedabase.io/en/library/sb/10/87/21/"
   }
