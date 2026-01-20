@@ -412,6 +412,7 @@ function App() {
                     <option value="sanskrit">Sanskrit</option>
                     <option value="english">English</option>
                     {selectedSloka && selectedSloka.odia && <option value="odia">Odia</option>}
+                    {selectedSloka && selectedSloka.bengali && <option value="bengali">Bengali</option>}
                     <option value="both">Both</option>
                   </select>
                   <select
@@ -455,6 +456,7 @@ function App() {
                       <option value="sanskrit">Sanskrit</option>
                       <option value="english">English</option>
                       {selectedSloka && selectedSloka.odia && <option value="odia">Odia</option>}
+                      {selectedSloka && selectedSloka.bengali && <option value="bengali">Bengali</option>}
                       <option value="both">Both</option>
                     </select>
                   </div>
@@ -537,6 +539,9 @@ function App() {
                   )}
                   {language === 'odia' && selectedSloka.odia && (
                     <div className="odia mb-2" style={{ fontSize: 22, fontFamily: 'Noto Serif, Georgia, serif', color: '#0a3d2a', textAlign: 'center', whiteSpace: 'pre-line' }}>{selectedSloka.odia}</div>
+                  )}
+                  {language === 'bengali' && selectedSloka.bengali && (
+                    <div className="bengali mb-2" style={{ fontSize: 22, fontFamily: 'Noto Serif Bengali, serif', color: '#0a3d2a', textAlign: 'center', whiteSpace: 'pre-line' }}>{selectedSloka.bengali}</div>
                   )}
                   {language === 'both' && (
                     <>
