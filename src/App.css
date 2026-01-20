@@ -1,3 +1,321 @@
+/* Mobile: keep language dropdown and prayer title/vedabase in one row, hide label */
+@media (max-width: 900px) {
+  .prayer-header-row-mobile {
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 0.5rem !important;
+  }
+  .prayer-header-title-group {
+    margin-bottom: 0 !important;
+    min-width: 0 !important;
+    font-size: 16px !important;
+  }
+  .prayer-header-language-center label {
+    display: none !important;
+  }
+  .prayer-header-language-center {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: flex-end !important;
+    align-items: center !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    margin-bottom: 0.5rem !important;
+  }
+  .prayer-header-language-center select {
+    font-size: 15px !important;
+    min-width: 70px !important;
+    max-width: 120px !important;
+  }
+  .sloka-dropdown {
+    width: 100%;
+    max-width: 100vw;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    font-size: 15px !important;
+  }
+}
+.prayer-header-row {
+  width: 100%;
+  margin-bottom: 1.5rem;
+  gap: 1rem;
+}
+.prayer-header-title-group {
+  min-width: 220px;
+  @media (max-width: 900px) {
+    .prayer-header-language-center {
+      justify-content: flex-end !important;
+    }
+  }
+}
+.prayer-header-language-center {
+  flex: 1 1 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 160px;
+}
+@media (max-width: 900px) {
+  .prayer-header-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+  .prayer-header-title-group {
+    min-width: 0;
+    margin-bottom: 0.5rem;
+    align-items: flex-start !important;
+  }
+  /* Remove conflicting left align for mobile, keep only right align above */
+  .sloka-dropdown {
+    width: 100%;
+    font-size: 18px;
+    font-family: 'serif';
+    background: #f8ecd4;
+    color: #7c4700;
+    min-width: 90px;
+    border: 2px solid #b77b1c;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px #e2c79944;
+    font-weight: 600;
+    padding: 0.7rem 1.2rem;
+    appearance: none;
+    cursor: pointer;
+    outline: none;
+    transition: border 0.2s, box-shadow 0.2s;
+  }
+  .prayers-title-mobile {
+    font-size: 18px !important;
+    text-align: left !important;
+    max-width: 90vw;
+    line-height: 1.2;
+  }
+  .prayer-header-row select,
+  .prayer-header-row label {
+    font-size: 15px !important;
+  }
+}
+.sloka-header-row {
+  min-height: 56px;
+}
+@media (max-width: 900px) {
+  .sloka-header-row {
+    min-height: 0 !important;
+  }
+  .card-title.w-100 {
+    font-size: 28px !important;
+  }
+}
+.prayer-header-language-center {
+  flex: 1 1 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 160px;
+}
+@media (max-width: 900px) {
+  .prayer-header-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+  .prayer-header-title-group {
+    min-width: 0;
+    margin-bottom: 0.5rem;
+  }
+  .prayer-header-language-center {
+    justify-content: flex-start !important;
+    margin-bottom: 0.5rem !important;
+  }
+  .sloka-dropdown {
+    width: 100%;
+    max-width: 100vw;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+}
+.prayer-header-row {
+  width: 100%;
+  margin-bottom: 1.5rem;
+  gap: 1rem;
+}
+.prayer-header-title-group {
+  min-width: 220px;
+}
+@media (max-width: 900px) {
+  .prayer-header-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+  .prayer-header-title-group {
+    min-width: 0;
+    margin-bottom: 0.5rem;
+  }
+  .sloka-dropdown {
+    width: 100%;
+    max-width: 100vw;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+}
+.sloka-header-dropdown-left {
+  left: 0;
+  top: 0;
+  z-index: 2;
+  padding-left: 0.5rem;
+  padding-top: 0.2rem;
+}
+.sloka-header-row {
+  min-height: 56px;
+}
+@media (max-width: 900px) {
+  .sloka-header-dropdown-left {
+    position: static !important;
+    margin-bottom: 0.5rem !important;
+    padding-left: 0 !important;
+    padding-top: 0 !important;
+  }
+  .sloka-header-row {
+    min-height: 0 !important;
+  }
+  .card-title.w-100 {
+    font-size: 28px !important;
+  }
+}
+.sloka-header-dropdown-center {
+  flex: 1 1 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 160px;
+}
+@media (max-width: 900px) {
+  .sloka-header-row {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 0.5rem !important;
+  }
+  .sloka-header-dropdown-center {
+    justify-content: flex-start !important;
+    margin-top: 0.5rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+}
+.sloka-header-dropdown-box {
+  margin-top: 0.5rem;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  z-index: 2;
+  background: transparent;
+}
+@media (max-width: 900px) {
+  .sloka-header-row {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+  .sloka-header-dropdown-box {
+    position: static !important;
+    margin-top: 1rem !important;
+    width: 100% !important;
+    justify-content: flex-end !important;
+  }
+}
+.sloka-header-row {
+  width: 100%;
+}
+/* Sloka header row layout */
+.sloka-header-flex {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+  position: relative;
+  gap: 2.5rem;
+}
+.sloka-header-center {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  min-width: 180px;
+}
+.sloka-header-dropdown {
+  display: flex;
+  align-items: center;
+  margin-left: 32px;
+  min-width: 120px;
+  justify-content: flex-start;
+}
+@media (max-width: 900px) {
+  .sloka-header-flex {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: stretch;
+  }
+  .sloka-header-dropdown {
+    margin-left: 0;
+    margin-top: 0.5rem;
+    justify-content: flex-start;
+  }
+  .sloka-header-center h2 {
+    font-size: 28px !important;
+    min-width: 0 !important;
+  }
+}
+@media (max-width: 700px) {
+  .sloka-header-flex {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: stretch;
+  }
+  .sloka-header-dropdown {
+    margin-left: 0;
+    margin-top: 0.5rem;
+    justify-content: center;
+  }
+  .sloka-header-center h2 {
+    font-size: 28px !important;
+  }
+}
+.sloka-header-row {
+  width: 100%;
+}
+.sloka-header-flex {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+}
+.sloka-header-center {
+  flex: 1 1 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 0;
+}
+.sloka-header-dropdown {
+  margin-left: 16px;
+}
+@media (max-width: 600px) {
+  .sloka-header-flex {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .sloka-header-dropdown {
+    margin-left: 0;
+    margin-top: 0.5rem;
+  }
+}
 /* Mobile navbar row: search and hamburger on one line */
 @media (max-width: 600px) {
   .navbar-mobile-row {
