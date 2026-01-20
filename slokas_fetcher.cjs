@@ -184,13 +184,13 @@ async function fetchRange(canto, chapter, startVerse, endVerse, outFile) {
   console.log(`Any errors logged to ${logFile}`);
 }
 // Prayers by Vyasadeva
-fetchRange(1, 1, 1, 3, './slokas_Vyasadeva.json');
+// fetchRange(1, 1, 1, 3, './slokas_Vyasadeva.json');
 
-// Prayers by Arjuna
-fetchRange(1, 7, 22, 25, './slokas_Arjuna.json');
+// // Prayers by Arjuna
+// fetchRange(1, 7, 22, 25, './slokas_Arjuna.json');
 
-// Prayers by Queen Kunti
-fetchRange(1, 8, 18, 43, './slokas_Queen_Kunti.json');
+// // Prayers by Queen Kunti
+// fetchRange(1, 8, 18, 43, './slokas_Queen_Kunti.json');
 // // Prayers by Kardama Muni
 // fetchRange(3, 28, 24, 33, './slokas_Kardama_Muni.json');
 
@@ -247,3 +247,21 @@ fetchRange(1, 8, 18, 43, './slokas_Queen_Kunti.json');
 
 // // Prayers by Vedas
 // fetchRange(10, 87, 21, 41, './slokas_Vedas.json');
+
+// Prayers by Uttarā
+fetchRange(1, 8, 9, 10, './slokas_Uttara.json');
+
+// Prayers by the Citizens of Dvārakā
+fetchRange(1, 11, 6, 10, './slokas_Citizens_of_Dwaraka.json');
+
+// Prayers by Lord Brahmā to Śrī Garbhodakaśāyī Viṣṇu
+fetchRange(3, 9, 1, 25, './slokas_Brahma_Garbhodakasayi.json');
+
+// Prayers to Lord Varāha by Ṛṣis
+fetchRange(3, 13, 34, 45, './slokas_Rishis_Varaha.json');
+
+// Prayers to Lord Viṣṇu by Sanakādi Ṛṣis at the Gate of Vaikuṇṭhaloka
+fetchRange(3, 15, 46, 50, './slokas_Sanakadi_Vaikuntha.json');
+
+// Prayers to Lord Varaha by Demigods
+fetchRange(3, 19, 30, 30, './slokas_Demigods_Varaha.json');

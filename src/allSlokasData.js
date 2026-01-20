@@ -25,6 +25,12 @@ import slokas_Vedas from '../slokas_Vedas.json';
 import slokas_Vritrasura from '../slokas_Vritrasura.json';
 import slokas_Vyasadeva from '../slokas_Vyasadeva.json';
 import slokas_Wives_of_Kaliya from '../slokas_Wives_of_Kaliya.json';
+import slokas_Uttara from '../slokas_Uttara.json';
+import slokas_Citizens_of_Dwaraka from '../slokas_Citizens_of_Dwaraka.json';
+import slokas_Brahma_Garbhodakasayi from '../slokas_Brahma_Garbhodakasayi.json';
+import slokas_Rishis_Varaha from '../slokas_Rishis_Varaha.json';
+import slokas_Sanakadi_Vaikuntha from '../slokas_Sanakadi_Vaikuntha.json';
+import slokas_Demigods_Varaha from '../slokas_Demigods_Varaha.json';
 
 const allSources = [
   { fileName: 'slokas_Akrura.json', prayerTitle: 'Prayers by Akrura', data: slokas_Akrura },
@@ -51,6 +57,12 @@ const allSources = [
   { fileName: 'slokas_Vritrasura.json', prayerTitle: 'Prayers by Vritrasura', data: slokas_Vritrasura },
   { fileName: 'slokas_Vyasadeva.json', prayerTitle: 'Prayers by Vyasadeva', data: slokas_Vyasadeva },
   { fileName: 'slokas_Wives_of_Kaliya.json', prayerTitle: 'Prayers by Wives of Kaliya', data: slokas_Wives_of_Kaliya },
+  { fileName: 'slokas_Uttara.json', prayerTitle: 'Prayers by Uttarā', data: slokas_Uttara },
+  { fileName: 'slokas_Citizens_of_Dwaraka.json', prayerTitle: 'Prayers by the Citizens of Dvārakā', data: slokas_Citizens_of_Dwaraka },
+  { fileName: 'slokas_Brahma_Garbhodakasayi.json', prayerTitle: 'Prayers by Lord Brahmā to Śrī Garbhodakaśāyī Viṣṇu', data: slokas_Brahma_Garbhodakasayi },
+  { fileName: 'slokas_Rishis_Varaha.json', prayerTitle: 'Prayers to Lord Varāha by Ṛṣis', data: slokas_Rishis_Varaha },
+  { fileName: 'slokas_Sanakadi_Vaikuntha.json', prayerTitle: 'Prayers to Lord Viṣṇu by Sanakādi Ṛṣis at the Gate of Vaikuṇṭhaloka', data: slokas_Sanakadi_Vaikuntha },
+  { fileName: 'slokas_Demigods_Varaha.json', prayerTitle: 'Prayers to Lord Varaha by Demigods', data: slokas_Demigods_Varaha },
 ];
 
 const allSlokasData = allSources.flatMap(source =>

@@ -23,6 +23,13 @@ import akruraSlokas from '../slokas_Akrura.json' assert { type: 'json' };
 import muchukundaSlokas from '../slokas_Muchukunda.json' assert { type: 'json' };
 import rudraBanaBattleSlokas from '../slokas_Rudra_Bana_Battle.json' assert { type: 'json' };
 import vedasSlokas from '../slokas_Vedas.json' assert { type: 'json' };
+// New prayer section imports
+import uttaraSlokas from '../slokas_Uttara.json' assert { type: 'json' };
+import citizensOfDwarakaSlokas from '../slokas_Citizens_of_Dwaraka.json' assert { type: 'json' };
+import brahmaGarbhodakasayiSlokas from '../slokas_Brahma_Garbhodakasayi.json' assert { type: 'json' };
+import rishisVarahaSlokas from '../slokas_Rishis_Varaha.json' assert { type: 'json' };
+import sanakadiVaikunthaSlokas from '../slokas_Sanakadi_Vaikuntha.json' assert { type: 'json' };
+import demigodsVarahaSlokas from '../slokas_Demigods_Varaha.json' assert { type: 'json' };
 
 export const slokas = {
   "Prayers by Vyasadeva": vyasadevaSlokas,
@@ -50,4 +57,11 @@ export const slokas = {
   "Prayers by Muchukunda": muchukundaSlokas,
   "Prayers by Rudra (Bana’s Battle)": rudraBanaBattleSlokas,
   "Prayers by Vedas": vedasSlokas,
+  // New prayer sections
+  "Prayers by Uttarā": uttaraSlokas,
+  "Prayers by the Citizens of Dvārakā": citizensOfDwarakaSlokas,
+  "Prayers by Lord Brahmā to Śrī Garbhodakaśāyī Viṣṇu": brahmaGarbhodakasayiSlokas,
+  "Prayers to Lord Varāha by Ṛṣis": rishisVarahaSlokas,
+  "Prayers to Lord Viṣṇu by Sanakādi Ṛṣis at the Gate of Vaikuṇṭhaloka": sanakadiVaikunthaSlokas,
+  "Prayers to Lord Varaha by Demigods": demigodsVarahaSlokas,
 };
