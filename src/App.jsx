@@ -383,37 +383,13 @@ function App() {
             </div>
             <div className="offcanvas-body">
               <div className="nav flex-column">
-                {prayers.map((prayer, idx) => (
-                  <button
-                    key={prayer.title}
-                    className={`btn text-start mb-3 py-3 px-3 rounded-4 border-0 ${selectedPrayer === idx ? 'fw-bold' : ''}`}
-                    style={{
-                      fontFamily: 'serif',
-                      fontSize: 18,
-                      background: selectedPrayer === idx ? 'linear-gradient(90deg, #ecd9b6 80%, #f9f6f1 100%)' : '#fff',
-                      color: selectedPrayer === idx ? '#7c4700' : '#4b2e05',
-                      boxShadow: selectedPrayer === idx ? '0 4px 16px #e2c79944' : '0 2px 8px #e2c79922',
-                      border: selectedPrayer === idx ? '2px solid #b77b1c' : '1px solid #e2c799',
-                      transition: 'all 0.2s',
-                    }}
-                    data-bs-dismiss="offcanvas"
-                    onClick={() => {
-                      setSelectedPrayer(idx);
-                      setSelectedSlokaIdx(0); // Always select first sloka
-                    }}
-                  >
-                    {prayer.title}
-                    <div className="small mt-1" style={{ color: selectedPrayer === idx ? '#b77b1c' : '#a67c52' }}>{prayer.reference}</div>
-                  </button>
-                ))}
-                {/* Contact Us button */}
                 <button
                   className={`btn text-start mb-3 py-3 px-3 rounded-4 border-0 ${showContactUs ? 'fw-bold' : ''}`}
                   style={{
                     fontFamily: 'serif',
                     fontSize: 18,
                     background: showContactUs ? 'linear-gradient(90deg, #ecd9b6 80%, #f9f6f1 100%)' : '#fff',
-                    color: showContactUs ? '#7c4700' : '#4b2e05',
+                    color: showContactUs ? '#7c4700' : '#2563eb',
                     boxShadow: showContactUs ? '0 4px 16px #e2c79944' : '0 2px 8px #e2c79922',
                     border: showContactUs ? '2px solid #b77b1c' : '1px solid #e2c799',
                     transition: 'all 0.2s',
@@ -425,8 +401,33 @@ function App() {
                     setSelectedSlokaIdx(null);
                   }}
                 >
-                  Contact Us
+                  📧 Contact Us
                 </button>
+                <hr style={{margin: '12px 0', borderColor: '#e2c799'}} />
+                {prayers.map((prayer, idx) => (
+                  <button
+                    key={prayer.title}
+                    className={`btn text-start mb-3 py-3 px-3 rounded-4 border-0 ${selectedPrayer === idx && !showContactUs ? 'fw-bold' : ''}`}
+                    style={{
+                      fontFamily: 'serif',
+                      fontSize: 18,
+                      background: selectedPrayer === idx && !showContactUs ? 'linear-gradient(90deg, #ecd9b6 80%, #f9f6f1 100%)' : '#fff',
+                      color: selectedPrayer === idx && !showContactUs ? '#7c4700' : '#4b2e05',
+                      boxShadow: selectedPrayer === idx && !showContactUs ? '0 4px 16px #e2c79944' : '0 2px 8px #e2c79922',
+                      border: selectedPrayer === idx && !showContactUs ? '2px solid #b77b1c' : '1px solid #e2c799',
+                      transition: 'all 0.2s',
+                    }}
+                    data-bs-dismiss="offcanvas"
+                    onClick={() => {
+                      setSelectedPrayer(idx);
+                      setSelectedSlokaIdx(0); // Always select first sloka
+                      setShowContactUs(false);
+                    }}
+                  >
+                    {prayer.title}
+                    <div className="small mt-1" style={{ color: selectedPrayer === idx && !showContactUs ? '#b77b1c' : '#a67c52' }}>{prayer.reference}</div>
+                  </button>
+                ))}
               </div>
             </div>
           </div>
