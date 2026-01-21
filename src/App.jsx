@@ -1,6 +1,6 @@
-
 import { useState, useEffect, useRef, forwardRef } from 'react';
 import allSlokasData from './allSlokasData';
+import ContactUs from './ContactUs';
 
 
 // Book page-turn animation wrapper component (must be before App)
@@ -106,7 +106,8 @@ function App() {
   const [searchSuggestions, setSearchSuggestions] = useState([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [vandanaOfDay] = useState(getRandomSlokaFromAll());
-  
+  // Contact Us page state
+  const [showContactUs, setShowContactUs] = useState(false);
   // For slide animation
   const [slokaAnimKey, setSlokaAnimKey] = useState(0);
   const slokaCardRef = useRef(null);
@@ -280,6 +281,29 @@ function App() {
         <div className="row g-0 main-row">
           {/* Sidebar for desktop */}
           <aside className="col-md-3 col-lg-2 border-end shadow-sm py-0 px-3 d-none d-md-block sidebar" style={{ background: 'linear-gradient(180deg, #f8ecd4 80%, #e2c799 100%)', display: 'flex', flexDirection: 'column', height: '100vh', minHeight: 0 }}>
+            {/* Contact Us button - always first and outside collapsible tab */}
+            <button
+              className={`btn text-start mb-3 py-3 px-3 rounded-4 border-0 ${showContactUs ? 'fw-bold' : ''}`}
+              style={{
+                fontFamily: 'serif',
+                fontSize: 18,
+                background: showContactUs ? 'linear-gradient(90deg, #ecd9b6 80%, #f9f6f1 100%)' : '#fff',
+                color: showContactUs ? '#7c4700' : '#2563eb',
+                boxShadow: showContactUs ? '0 4px 16px #e2c79944' : '0 2px 8px #e2c79922',
+                border: showContactUs ? '2px solid #b77b1c' : '1px solid #e2c799',
+                transition: 'all 0.2s',
+                width: '100%',
+                marginTop: 18,
+                marginBottom: 8
+              }}
+              onClick={() => {
+                setShowContactUs(true);
+                setSelectedPrayer(null);
+                setSelectedSlokaIdx(null);
+              }}
+            >
+              📧 Contact Us
+            </button>
             <div style={{ position: 'sticky', top: 0, zIndex: 2, background: 'linear-gradient(180deg, #f8ecd4 80%, #e2c799 100%)', paddingTop: '1.5rem', paddingBottom: '1rem' }}>
               <div className="d-flex align-items-center justify-content-between mb-2"
                 style={{
@@ -329,23 +353,24 @@ function App() {
               {sidebarExpanded && prayers.map((prayer, idx) => (
                 <button
                   key={prayer.title}
-                  className={`btn text-start mb-3 py-3 px-3 rounded-4 border-0 ${selectedPrayer === idx ? 'fw-bold' : ''}`}
+                  className={`btn text-start mb-3 py-3 px-3 rounded-4 border-0 ${selectedPrayer === idx && !showContactUs ? 'fw-bold' : ''}`}
                   style={{
                     fontFamily: 'serif',
                     fontSize: 18,
-                    background: selectedPrayer === idx ? 'linear-gradient(90deg, #ecd9b6 80%, #f9f6f1 100%)' : '#fff',
-                    color: selectedPrayer === idx ? '#7c4700' : '#4b2e05',
-                    boxShadow: selectedPrayer === idx ? '0 4px 16px #e2c79944' : '0 2px 8px #e2c79922',
-                    border: selectedPrayer === idx ? '2px solid #b77b1c' : '1px solid #e2c799',
+                    background: selectedPrayer === idx && !showContactUs ? 'linear-gradient(90deg, #ecd9b6 80%, #f9f6f1 100%)' : '#fff',
+                    color: selectedPrayer === idx && !showContactUs ? '#7c4700' : '#4b2e05',
+                    boxShadow: selectedPrayer === idx && !showContactUs ? '0 4px 16px #e2c79944' : '0 2px 8px #e2c79922',
+                    border: selectedPrayer === idx && !showContactUs ? '2px solid #b77b1c' : '1px solid #e2c799',
                     transition: 'all 0.2s',
                   }}
-                    onClick={() => {
-                      setSelectedPrayer(idx);
-                      setSelectedSlokaIdx(0); // Always select first sloka
-                    }}
+                  onClick={() => {
+                    setShowContactUs(false);
+                    setSelectedPrayer(idx);
+                    setSelectedSlokaIdx(0); // Always select first sloka
+                  }}
                 >
                   {prayer.title}
-                  <div className="small mt-1" style={{ color: selectedPrayer === idx ? '#b77b1c' : '#a67c52' }}>{prayer.reference}</div>
+                  <div className="small mt-1" style={{ color: selectedPrayer === idx && !showContactUs ? '#b77b1c' : '#a67c52' }}>{prayer.reference}</div>
                 </button>
               ))}
             </div>
@@ -381,187 +406,211 @@ function App() {
                     <div className="small mt-1" style={{ color: selectedPrayer === idx ? '#b77b1c' : '#a67c52' }}>{prayer.reference}</div>
                   </button>
                 ))}
+                {/* Contact Us button */}
+                <button
+                  className={`btn text-start mb-3 py-3 px-3 rounded-4 border-0 ${showContactUs ? 'fw-bold' : ''}`}
+                  style={{
+                    fontFamily: 'serif',
+                    fontSize: 18,
+                    background: showContactUs ? 'linear-gradient(90deg, #ecd9b6 80%, #f9f6f1 100%)' : '#fff',
+                    color: showContactUs ? '#7c4700' : '#4b2e05',
+                    boxShadow: showContactUs ? '0 4px 16px #e2c79944' : '0 2px 8px #e2c79922',
+                    border: showContactUs ? '2px solid #b77b1c' : '1px solid #e2c799',
+                    transition: 'all 0.2s',
+                  }}
+                  data-bs-dismiss="offcanvas"
+                  onClick={() => {
+                    setShowContactUs(true);
+                    setSelectedPrayer(null);
+                    setSelectedSlokaIdx(null);
+                  }}
+                >
+                  Contact Us
+                </button>
               </div>
             </div>
           </div>
         <main className="col-md-9 col-lg-10 px-4 py-4 main-content" style={{ background: 'linear-gradient(120deg, #f9f6f1 80%, #ecd9b6 100%)' }}>
-          {/* Sloka Dropdown above main card, centered */}
-          {selectedPrayer !== null && slokaList.length > 0 && (
-            <div className={`prayer-header-row d-flex align-items-center justify-content-between mb-3 flex-wrap${isMobile ? ' prayer-header-row-mobile' : ''}`} style={{gap:'1rem'}}>
-              <div className="d-flex flex-column align-items-start prayer-header-title-group">
-                <span className="fw-bold prayers-title-mobile" style={{ fontFamily: 'serif', fontSize: 28, color: '#7c4700', letterSpacing: 1, lineHeight: 1.1 }}>{prayers[selectedPrayer].title}</span>
-                <a
-                  href={vedabaseSlokaUrl || prayers[selectedPrayer].link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="d-inline-block text-decoration-underline fw-semibold"
-                  style={{ color: '#b77b1c', fontSize: 18 }}
-                >
-                  Open on Vedabase
-                </a>
-              </div>
-              {isMobile ? (
-                <div className="prayer-header-mobile-dropdown-row" style={{display:'flex',width:'100%',gap:'0.5rem',justifyContent:'space-between',alignItems:'center'}}>
-                  <select
-                    id="lang-select"
-                    value={language}
-                    onChange={e => setLanguage(e.target.value)}
-                    className="form-select w-auto"
-                    style={{ fontSize: 15, fontFamily: 'serif', background: '#f8ecd4', color: '#7c4700', minWidth: '90px', maxWidth: '140px', border: '2px solid #b77b1c', borderRadius: 16, boxShadow: '0 4px 16px #e2c79944', fontWeight: 600, padding: '0.5rem 0.7rem', appearance: 'none', cursor: 'pointer', outline: 'none', transition: 'border 0.2s, box-shadow 0.2s' }}
-                  >
-                    <option value="sanskrit">Sanskrit</option>
-                    <option value="english">English</option>
-                    {selectedSloka && selectedSloka.odia && <option value="odia">Odia</option>}
-                    {selectedSloka && selectedSloka.bengali && <option value="bengali">Bengali</option>}
-                    <option value="both">Both</option>
-                  </select>
-                  <select
-                    className="form-select sloka-dropdown"
-                    style={{
-                      maxWidth: 80,
-                      fontSize: 15,
-                      fontFamily: 'serif',
-                      background: '#f8ecd4',
-                      color: '#7c4700',
-                      border: '2px solid #b77b1c',
-                      borderRadius: 16,
-                      boxShadow: '0 4px 16px #e2c79944',
-                      fontWeight: 600,
-                      padding: '0.5rem 0.7rem',
-                      appearance: 'none',
-                      cursor: 'pointer',
-                      outline: 'none',
-                      transition: 'border 0.2s, box-shadow 0.2s',
-                    }}
-                    value={selectedSlokaIdx !== null ? selectedSlokaIdx : ''}
-                    onChange={e => setSelectedSlokaIdx(Number(e.target.value))}
-                  >
-                    <option value="" disabled>Select a Sloka</option>
-                    {slokaList.map((sloka, idx) => (
-                      <option key={sloka.number} value={idx}>{sloka.number}</option>
-                    ))}
-                  </select>
-                </div>
-              ) : (
-                <>
-                  <div className="prayer-header-language-center d-flex align-items-center justify-content-center flex-grow-1" style={{minWidth:'160px'}}>
-                    <label htmlFor="lang-select" className="fw-bold me-2 mb-0" style={{ color: '#7c4700', fontSize: 18 }}>Language:</label>
-                    <select
-                      id="lang-select"
-                      value={language}
-                      onChange={e => setLanguage(e.target.value)}
-                      className="form-select w-auto"
-                      style={{ fontSize: 18, fontFamily: 'serif', background: '#f9f6f1', color: '#7c4700', minWidth: '90px' }}
+          {showContactUs ? (
+            <ContactUs />
+          ) : (
+            <>
+              {/* Sloka Dropdown above main card, centered */}
+              {selectedPrayer !== null && slokaList.length > 0 && (
+                <div className={`prayer-header-row d-flex align-items-center justify-content-between mb-3 flex-wrap${isMobile ? ' prayer-header-row-mobile' : ''}`} style={{gap:'1rem'}}>
+                  <div className="d-flex flex-column align-items-start prayer-header-title-group">
+                    <span className="fw-bold prayers-title-mobile" style={{ fontFamily: 'serif', fontSize: 28, color: '#7c4700', letterSpacing: 1, lineHeight: 1.1 }}>{prayers[selectedPrayer].title}</span>
+                    <a
+                      href={vedabaseSlokaUrl || prayers[selectedPrayer].link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="d-inline-block text-decoration-underline fw-semibold"
+                      style={{ color: '#b77b1c', fontSize: 18 }}
                     >
-                      <option value="sanskrit">Sanskrit</option>
-                      <option value="english">English</option>
-                      {selectedSloka && selectedSloka.odia && <option value="odia">Odia</option>}
-                      {selectedSloka && selectedSloka.bengali && <option value="bengali">Bengali</option>}
-                      <option value="both">Both</option>
-                    </select>
+                      Open on Vedabase
+                    </a>
                   </div>
-                  {slokaList.length > 1 ? (
-                    <select
-                      className="form-select sloka-dropdown"
-                      style={{
-                        maxWidth: 320,
-                        fontSize: 18,
-                        fontFamily: 'serif',
-                        background: '#f8ecd4',
-                        color: '#7c4700',
-                        border: '2px solid #b77b1c',
-                        borderRadius: 16,
-                        boxShadow: '0 4px 16px #e2c79944',
-                        fontWeight: 600,
-                        padding: '0.7rem 1.2rem',
-                        appearance: 'none',
-                        cursor: 'pointer',
-                        outline: 'none',
-                        transition: 'border 0.2s, box-shadow 0.2s',
-                      }}
-                      value={selectedSlokaIdx !== null ? selectedSlokaIdx : ''}
-                      onChange={e => setSelectedSlokaIdx(Number(e.target.value))}
-                    >
-                      <option value="" disabled>Select a Sloka</option>
-                      {slokaList.map((sloka, idx) => (
-                        <option key={sloka.number} value={idx}>{sloka.number}</option>
-                      ))}
-                    </select>
-                  ) : null}
-                </>
-              )}
-            </div>
-          )}
-          {/* Vandana of the Day */}
-          {selectedPrayer === null && vandanaOfDay && (
-            <div className="card mb-5 p-4" style={{ background: 'linear-gradient(120deg, #f9f6f1 80%, #ecd9b6 100%)', borderRadius: 18, boxShadow: '0 2px 8px #e2c79922', maxWidth: 700, margin: '0 auto' }}>
-              <div className="fw-bold mb-2" style={{ color: '#b77b1c', fontSize: 20 }}>Vandana of the Day</div>
-              <div className="mb-2" style={{ color: '#7c4700', fontWeight: 600, fontSize: 18 }}>{vandanaOfDay.prayerTitle}</div>
-              <h2 className="card-title text-center mb-4" style={{ fontFamily: 'serif', fontSize: 44, color: '#7c4700' }}>{vandanaOfDay.sloka.number}</h2>
-              <div className="sanskrit mb-4" style={{ fontSize: 32, fontFamily: 'Noto Serif Devanagari, Noto Serif, serif', color: '#1a1200', fontWeight: 500, textAlign: 'center', whiteSpace: 'pre-line' }}>{vandanaOfDay.sloka.sanskrit}</div>
-              <div className="english mb-4" style={{ fontSize: 22, fontFamily: 'Noto Serif, Georgia, serif', color: '#3d2a0a', fontStyle: 'italic', textAlign: 'center', whiteSpace: 'pre-line' }}>{vandanaOfDay.sloka.english}</div>
-              {vandanaOfDay.sloka.odia && (
-                <div className="odia mb-4" style={{ fontSize: 22, fontFamily: 'Noto Serif, Georgia, serif', color: '#0a3d2a', textAlign: 'center', whiteSpace: 'pre-line' }}>{vandanaOfDay.sloka.odia}</div>
-              )}
-              <div className="translation card border-0 rounded-3 p-3 mt-3 mx-auto" style={{ color: '#7c4700', fontSize: 20, maxWidth: 700, background: 'linear-gradient(90deg, #f9f6f1 80%, #ecd9b6 100%)' }}>
-                <b style={{ color: '#b77b1c' }}>Translation:</b> {vandanaOfDay.sloka.translation}
-              </div>
-            </div>
-          )}
-          {/* Main content */}
-          {selectedPrayer !== null ? (
-            <div>
-              {/* Open on Vedabase link next to main sloka display */}
-              {/* Removed old Slokas box and label; dropdown is now above main card */}
-              {selectedSloka && (
-                <SlokaSlideCard key={slokaAnimKey} ref={slokaCardRef}>
-                  {/* Navigation Arrows */}
-                  {selectedSlokaIdx > 0 && (
-                    <div className="sloka-nav-arrow left" tabIndex={0} onClick={() => { setSelectedSlokaIdx(idx => idx - 1); setSlokaAnimKey(k => k + 1); }}>
-                      <svg viewBox="0 0 24 24"><path d="M15.5 19.5L8.5 12.5L15.5 5.5" stroke="#b77b1c" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/></svg>
-                      <span className="sloka-nav-tooltip">Tip: Use keyboard arrows or scroll on mobile/PC</span>
+                  {isMobile ? (
+                    <div className="prayer-header-mobile-dropdown-row" style={{display:'flex',width:'100%',gap:'0.5rem',justifyContent:'space-between',alignItems:'center'}}>
+                      <select
+                        id="lang-select"
+                        value={language}
+                        onChange={e => setLanguage(e.target.value)}
+                        className="form-select w-auto"
+                        style={{ fontSize: 15, fontFamily: 'serif', background: '#f8ecd4', color: '#7c4700', minWidth: '90px', maxWidth: '140px', border: '2px solid #b77b1c', borderRadius: 16, boxShadow: '0 4px 16px #e2c79944', fontWeight: 600, padding: '0.5rem 0.7rem', appearance: 'none', cursor: 'pointer', outline: 'none', transition: 'border 0.2s, box-shadow 0.2s' }}
+                      >
+                        <option value="sanskrit">Sanskrit</option>
+                        <option value="english">English</option>
+                        {selectedSloka && selectedSloka.odia && <option value="odia">Odia</option>}
+                        {selectedSloka && selectedSloka.bengali && <option value="bengali">Bengali</option>}
+                        <option value="both">Both</option>
+                      </select>
+                      <select
+                        className="form-select sloka-dropdown"
+                        style={{
+                          maxWidth: 80,
+                          fontSize: 15,
+                          fontFamily: 'serif',
+                          background: '#f8ecd4',
+                          color: '#7c4700',
+                          border: '2px solid #b77b1c',
+                          borderRadius: 16,
+                          boxShadow: '0 4px 16px #e2c79944',
+                          fontWeight: 600,
+                          padding: '0.5rem 0.7rem',
+                          appearance: 'none',
+                          cursor: 'pointer',
+                          outline: 'none',
+                          transition: 'border 0.2s, box-shadow 0.2s',
+                        }}
+                        value={selectedSlokaIdx !== null ? selectedSlokaIdx : ''}
+                        onChange={e => setSelectedSlokaIdx(Number(e.target.value))}
+                      >
+                        <option value="" disabled>Select a Sloka</option>
+                        {slokaList.map((sloka, idx) => (
+                          <option key={sloka.number} value={idx}>{sloka.number}</option>
+                        ))}
+                      </select>
                     </div>
-                  )}
-                  {selectedSlokaIdx < slokaList.length - 1 && (
-                    <div className="sloka-nav-arrow right" tabIndex={0} onClick={() => { setSelectedSlokaIdx(idx => idx + 1); setSlokaAnimKey(k => k + 1); }}>
-                      <svg viewBox="0 0 24 24"><path d="M8.5 19.5L15.5 12.5L8.5 5.5" stroke="#b77b1c" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/></svg>
-                      <span className="sloka-nav-tooltip">Tip: Use keyboard arrows or scroll on mobile/PC</span>
-                    </div>
-                  )}
-                  <div className="sloka-header-row mb-4 position-relative">
-                    <h2 className="card-title mb-0 text-center w-100" style={{ fontFamily: 'serif', fontSize: 44, color: '#7c4700', minWidth: '180px', textAlign: 'center' }}>{selectedSloka.number}</h2>
-                  </div>
-                  {language === 'sanskrit' && (
-                    <div className="sanskrit mb-2" style={{ fontSize: 32, fontFamily: 'Noto Serif Devanagari, Noto Serif, serif', color: '#1a1200', fontWeight: 500, textAlign: 'center', whiteSpace: 'pre-line' }}>{selectedSloka.sanskrit}</div>
-                  )}
-                  {language === 'english' && (
-                    <div className="english mb-2" style={{ fontSize: 22, fontFamily: 'Noto Serif, Georgia, serif', color: '#3d2a0a', fontStyle: 'italic', textAlign: 'center', whiteSpace: 'pre-line' }}>{selectedSloka.english}</div>
-                  )}
-                  {language === 'odia' && selectedSloka.odia && (
-                    <div className="odia mb-2" style={{ fontSize: 22, fontFamily: 'Noto Serif, Georgia, serif', color: '#0a3d2a', textAlign: 'center', whiteSpace: 'pre-line' }}>{selectedSloka.odia}</div>
-                  )}
-                  {language === 'bengali' && selectedSloka.bengali && (
-                    <div className="bengali mb-2" style={{ fontSize: 22, fontFamily: 'Noto Serif Bengali, serif', color: '#0a3d2a', textAlign: 'center', whiteSpace: 'pre-line' }}>{selectedSloka.bengali}</div>
-                  )}
-                  {language === 'both' && (
+                  ) : (
                     <>
-                      <div className="sanskrit mb-2" style={{ fontSize: 32, fontFamily: 'Noto Serif Devanagari, Noto Serif, serif', color: '#1a1200', fontWeight: 500, textAlign: 'center', whiteSpace: 'pre-line' }}>{selectedSloka.sanskrit}</div>
-                      <div className="english mb-2" style={{ fontSize: 22, fontFamily: 'Noto Serif, Georgia, serif', color: '#3d2a0a', fontStyle: 'italic', textAlign: 'center', whiteSpace: 'pre-line' }}>{selectedSloka.english}</div>
+                      <div className="prayer-header-language-center d-flex align-items-center justify-content-center flex-grow-1" style={{minWidth:'160px'}}>
+                        <label htmlFor="lang-select" className="fw-bold me-2 mb-0" style={{ color: '#7c4700', fontSize: 18 }}>Language:</label>
+                        <select
+                          id="lang-select"
+                          value={language}
+                          onChange={e => setLanguage(e.target.value)}
+                          className="form-select w-auto"
+                          style={{ fontSize: 18, fontFamily: 'serif', background: '#f9f6f1', color: '#7c4700', minWidth: '90px' }}
+                        >
+                          <option value="sanskrit">Sanskrit</option>
+                          <option value="english">English</option>
+                          {selectedSloka && selectedSloka.odia && <option value="odia">Odia</option>}
+                          {selectedSloka && selectedSloka.bengali && <option value="bengali">Bengali</option>}
+                          <option value="both">Both</option>
+                        </select>
+                      </div>
+                      {slokaList.length > 1 ? (
+                        <select
+                          className="form-select sloka-dropdown"
+                          style={{
+                            maxWidth: 320,
+                            fontSize: 18,
+                            fontFamily: 'serif',
+                            background: '#f8ecd4',
+                            color: '#7c4700',
+                            border: '2px solid #b77b1c',
+                            borderRadius: 16,
+                            boxShadow: '0 4px 16px #e2c79944',
+                            fontWeight: 600,
+                            padding: '0.7rem 1.2rem',
+                            appearance: 'none',
+                            cursor: 'pointer',
+                            outline: 'none',
+                            transition: 'border 0.2s, box-shadow 0.2s',
+                          }}
+                          value={selectedSlokaIdx !== null ? selectedSlokaIdx : ''}
+                          onChange={e => setSelectedSlokaIdx(Number(e.target.value))}
+                        >
+                          <option value="" disabled>Select a Sloka</option>
+                          {slokaList.map((sloka, idx) => (
+                            <option key={sloka.number} value={idx}>{sloka.number}</option>
+                          ))}
+                        </select>
+                      ) : null}
                     </>
                   )}
-                  <div className="translation card border-0 rounded-3 p-3 mt-3 mx-auto" style={{ color: '#7c4700', fontSize: 20, maxWidth: 700, background: 'linear-gradient(90deg, #f9f6f1 80%, #ecd9b6 100%)' }}>
-                    <b style={{ color: '#b77b1c' }}>Translation:</b> {selectedSloka.translation}
-                  </div>
-                </SlokaSlideCard>
+                </div>
               )}
-
-
-
-            </div>
-          ) : (
-            <div className="fw-semibold fs-4 mt-5" style={{ color: '#b77b1c' }}>
-              Please select a prayer from the left to view details.
-            </div>
+              {/* Vandana of the Day */}
+              {selectedPrayer === null && vandanaOfDay && (
+                <div className="card mb-5 p-4" style={{ background: 'linear-gradient(120deg, #f9f6f1 80%, #ecd9b6 100%)', borderRadius: 18, boxShadow: '0 2px 8px #e2c79922', maxWidth: 700, margin: '0 auto' }}>
+                  <div className="fw-bold mb-2" style={{ color: '#b77b1c', fontSize: 20 }}>Vandana of the Day</div>
+                  <div className="mb-2" style={{ color: '#7c4700', fontWeight: 600, fontSize: 18 }}>{vandanaOfDay.prayerTitle}</div>
+                  <h2 className="card-title text-center mb-4" style={{ fontFamily: 'serif', fontSize: 44, color: '#7c4700' }}>{vandanaOfDay.sloka.number}</h2>
+                  <div className="sanskrit mb-4" style={{ fontSize: 32, fontFamily: 'Noto Serif Devanagari, Noto Serif, serif', color: '#1a1200', fontWeight: 500, textAlign: 'center', whiteSpace: 'pre-line' }}>{vandanaOfDay.sloka.sanskrit}</div>
+                  <div className="english mb-4" style={{ fontSize: 22, fontFamily: 'Noto Serif, Georgia, serif', color: '#3d2a0a', fontStyle: 'italic', textAlign: 'center', whiteSpace: 'pre-line' }}>{vandanaOfDay.sloka.english}</div>
+                  {vandanaOfDay.sloka.odia && (
+                    <div className="odia mb-4" style={{ fontSize: 22, fontFamily: 'Noto Serif, Georgia, serif', color: '#0a3d2a', textAlign: 'center', whiteSpace: 'pre-line' }}>{vandanaOfDay.sloka.odia}</div>
+                  )}
+                  <div className="translation card border-0 rounded-3 p-3 mt-3 mx-auto" style={{ color: '#7c4700', fontSize: 20, maxWidth: 700, background: 'linear-gradient(90deg, #f9f6f1 80%, #ecd9b6 100%)' }}>
+                    <b style={{ color: '#b77b1c' }}>Translation:</b> {vandanaOfDay.sloka.translation}
+                  </div>
+                </div>
+              )}
+              {/* Main content */}
+              {selectedPrayer !== null ? (
+                <div>
+                  {/* Open on Vedabase link next to main sloka display */}
+                  {/* Removed old Slokas box and label; dropdown is now above main card */}
+                  {selectedSloka && (
+                    <SlokaSlideCard key={slokaAnimKey} ref={slokaCardRef}>
+                      {/* Navigation Arrows */}
+                      {selectedSlokaIdx > 0 && (
+                        <div className="sloka-nav-arrow left" tabIndex={0} onClick={() => { setSelectedSlokaIdx(idx => idx - 1); setSlokaAnimKey(k => k + 1); }}>
+                          <svg viewBox="0 0 24 24"><path d="M15.5 19.5L8.5 12.5L15.5 5.5" stroke="#b77b1c" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/></svg>
+                          <span className="sloka-nav-tooltip">Tip: Use keyboard arrows or scroll on mobile/PC</span>
+                        </div>
+                      )}
+                      {selectedSlokaIdx < slokaList.length - 1 && (
+                        <div className="sloka-nav-arrow right" tabIndex={0} onClick={() => { setSelectedSlokaIdx(idx => idx + 1); setSlokaAnimKey(k => k + 1); }}>
+                          <svg viewBox="0 0 24 24"><path d="M8.5 19.5L15.5 12.5L8.5 5.5" stroke="#b77b1c" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/></svg>
+                          <span className="sloka-nav-tooltip">Tip: Use keyboard arrows or scroll on mobile/PC</span>
+                        </div>
+                      )}
+                      <div className="sloka-header-row mb-4 position-relative">
+                        <h2 className="card-title mb-0 text-center w-100" style={{ fontFamily: 'serif', fontSize: 44, color: '#7c4700', minWidth: '180px', textAlign: 'center' }}>{selectedSloka.number}</h2>
+                      </div>
+                      {language === 'sanskrit' && (
+                        <div className="sanskrit mb-2" style={{ fontSize: 32, fontFamily: 'Noto Serif Devanagari, Noto Serif, serif', color: '#1a1200', fontWeight: 500, textAlign: 'center', whiteSpace: 'pre-line' }}>{selectedSloka.sanskrit}</div>
+                      )}
+                      {language === 'english' && (
+                        <div className="english mb-2" style={{ fontSize: 22, fontFamily: 'Noto Serif, Georgia, serif', color: '#3d2a0a', fontStyle: 'italic', textAlign: 'center', whiteSpace: 'pre-line' }}>{selectedSloka.english}</div>
+                      )}
+                      {language === 'odia' && selectedSloka.odia && (
+                        <div className="odia mb-2" style={{ fontSize: 22, fontFamily: 'Noto Serif, Georgia, serif', color: '#0a3d2a', textAlign: 'center', whiteSpace: 'pre-line' }}>{selectedSloka.odia}</div>
+                      )}
+                      {language === 'bengali' && selectedSloka.bengali && (
+                        <div className="bengali mb-2" style={{ fontSize: 22, fontFamily: 'Noto Serif Bengali, serif', color: '#0a3d2a', textAlign: 'center', whiteSpace: 'pre-line' }}>{selectedSloka.bengali}</div>
+                      )}
+                      {language === 'both' && (
+                        <>
+                          <div className="sanskrit mb-2" style={{ fontSize: 32, fontFamily: 'Noto Serif Devanagari, Noto Serif, serif', color: '#1a1200', fontWeight: 500, textAlign: 'center', whiteSpace: 'pre-line' }}>{selectedSloka.sanskrit}</div>
+                          <div className="english mb-2" style={{ fontSize: 22, fontFamily: 'Noto Serif, Georgia, serif', color: '#3d2a0a', fontStyle: 'italic', textAlign: 'center', whiteSpace: 'pre-line' }}>{selectedSloka.english}</div>
+                        </>
+                      )}
+                      <div className="translation card border-0 rounded-3 p-3 mt-3 mx-auto" style={{ color: '#7c4700', fontSize: 20, maxWidth: 700, background: 'linear-gradient(90deg, #f9f6f1 80%, #ecd9b6 100%)' }}>
+                        <b style={{ color: '#b77b1c' }}>Translation:</b> {selectedSloka.translation}
+                      </div>
+                    </SlokaSlideCard>
+                  )}
+                </div>
+              ) : (
+                <div className="fw-semibold fs-4 mt-5" style={{ color: '#b77b1c' }}>
+                  Please select a prayer from the left to view details.
+                </div>
+              )}
+            </>
           )}
         </main>
       </div>
