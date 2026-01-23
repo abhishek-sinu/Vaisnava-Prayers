@@ -577,6 +577,18 @@ function App() {
                   )}
                   <div className="translation card border-0 rounded-3 p-3 mt-3 mx-auto" style={{ color: '#7c4700', fontSize: 20, maxWidth: 700, background: 'linear-gradient(90deg, #f9f6f1 80%, #ecd9b6 100%)' }}>
                     <b style={{ color: '#b77b1c' }}>Translation:</b> {vandanaOfDay.sloka.translation}
+                    <div style={{ fontSize: 15, color: '#a67c52', marginTop: 8 }}>
+                      <em>
+                        <b>Translation is taken from Vedabase by His Divine Grace A.C. Bhaktivedanta Swami Prabhupāda, Founder-Ācārya of ISKCON.</b>
+                        {prayers[selectedPrayer]?.link && (
+                          <>
+                            &nbsp;[
+                            <a href={prayers[selectedPrayer].link} target="_blank" rel="noopener noreferrer" style={{ color: '#b77b1c', textDecoration: 'underline' }}>vedabase link</a>
+                            ]
+                          </>
+                        )}
+                      </em>
+                    </div>
                   </div>
                 </div>
               )}
@@ -610,6 +622,18 @@ function App() {
             )}
             <div className="translation card border-0 rounded-3 p-3 mt-3 mx-auto" style={{ color: '#7c4700', fontSize: 20, maxWidth: 700, background: 'linear-gradient(90deg, #f9f6f1 80%, #ecd9b6 100%)' }}>
               <b style={{ color: '#b77b1c' }}>Translation:</b> {sloka.translation}
+              <div style={{ fontSize: 15, color: '#a67c52', marginTop: 8 }}>
+                <em>
+                  <b>Translation is taken from Vedabase by His Divine Grace A.C. Bhaktivedanta Swami Prabhupāda, Founder-Ācārya of ISKCON.</b>
+                  {prayers[selectedPrayer]?.link && (
+                    <>
+                      &nbsp;[
+                      <a href={prayers[selectedPrayer].link} target="_blank" rel="noopener noreferrer" style={{ color: '#b77b1c', textDecoration: 'underline' }}>vedabase link</a>
+                      ]
+                    </>
+                  )}
+                </em>
+              </div>
             </div>
           </SlokaSlideCard>
         ))}
