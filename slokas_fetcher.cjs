@@ -248,20 +248,125 @@ async function fetchRange(canto, chapter, startVerse, endVerse, outFile) {
 // // Prayers by Vedas
 // fetchRange(10, 87, 21, 41, './slokas_Vedas.json');
 
-// Prayers by Uttarā
-fetchRange(1, 8, 9, 10, './slokas_Uttara.json');
+fetchRange(6, 11, 24, 27, './slokas_Vritrasura.json');
+// === AUTO-GENERATED FETCH COMMANDS FOR NEW PRAYERS ===
+// CANTO 3
+//fetchRange(3, 5, 39, 51, './slokas_Demigods.json');
+// fetchRange(3, 16, 16, 25, './slokas_Sanakadi_Rishis.json');
 
-// Prayers by the Citizens of Dvārakā
-fetchRange(1, 11, 6, 10, './slokas_Citizens_of_Dwaraka.json');
+// // CANTO 4
+// fetchRange(4, 1, 26, 28, './slokas_Atri_Rishi.json');
+// fetchRange(4, 1, 56, 57, './slokas_Demigods_Nara_Narayana.json');
+// fetchRange(4, 24, 6, 23, './slokas_Brahma_to_Shiva.json');
+// fetchRange(4, 7, 26, 47, './slokas_Daksha_Yajna.json');
+// fetchRange(4, 17, 29, 36, './slokas_Dhara.json');
+// fetchRange(4, 24, 33, 79, './slokas_Rudra_Gita.json');
+// fetchRange(4, 30, 22, 42, './slokas_Pracetas.json');
 
-// Prayers by Lord Brahmā to Śrī Garbhodakaśāyī Viṣṇu
-fetchRange(3, 9, 1, 25, './slokas_Brahma_Garbhodakasayi.json');
+// // CANTO 5
+// fetchRange(5, 3, 4, 15, './slokas_Rtvija_Nabhi_Yajna.json');
+// fetchRange(5, 17, 17, 24, './slokas_Shiva_Sankarsana.json');
+// fetchRange(5, 18, 2, 6, './slokas_Bhadrasrava_Hayagriva.json');
+// fetchRange(5, 18, 8, 14, './slokas_Prahlada_Nrsimha.json');
+// fetchRange(5, 18, 18, 23, './slokas_Lakshmi_Kamadeva.json');
+// fetchRange(5, 18, 25, 28, './slokas_Manu_Matsya.json');
+// fetchRange(5, 18, 30, 33, './slokas_Aryama_Kurma.json');
+// fetchRange(5, 18, 35, 39, './slokas_Bhumi_Varaha.json');
 
-// Prayers to Lord Varāha by Ṛṣis
-fetchRange(3, 13, 34, 45, './slokas_Rishis_Varaha.json');
+// // CANTO 6
+// fetchRange(6, 4, 23, 34, './slokas_Daksha_Harina_Guhya.json');
+// fetchRange(6, 9, 21, 27, './slokas_Demigods_Supreme.json');
+// fetchRange(6, 9, 31, 45, './slokas_Demigods_Appearance.json');
+// fetchRange(6, 16, 18, 25, './slokas_Narada_Muni.json');
+// fetchRange(6, 16, 34, 48, './slokas_Citraketu_Stotra.json');
 
-// Prayers to Lord Viṣṇu by Sanakādi Ṛṣis at the Gate of Vaikuṇṭhaloka
-fetchRange(3, 15, 46, 50, './slokas_Sanakadi_Vaikuntha.json');
+// // CANTO 7
+// fetchRange(7, 8, 40, 56, './slokas_Demigods_Nrsimha.json');
+// fetchRange(7, 10, 8, 50, './slokas_Prahlada_Pacify_Nrsimha.json');
 
-// Prayers to Lord Varaha by Demigods
-fetchRange(3, 19, 30, 30, './slokas_Demigods_Varaha.json');
+// // CANTO 8
+// fetchRange(8, 1, 9, 16, './slokas_Svayambhuva_Manu.json');
+// fetchRange(8, 5, 26, 50, './slokas_Brahma_Ksirodakasayi.json');
+// fetchRange(8, 6, 8, 15, './slokas_Brahma_Appearance.json');
+// fetchRange(8, 7, 21, 35, './slokas_Prajapatis_Shiva.json');
+// fetchRange(8, 12, 4, 13, './slokas_Shiva_Vishnu.json');
+// fetchRange(8, 17, 8, 10, './slokas_Aditi.json');
+// fetchRange(8, 17, 25, 28, './slokas_Brahma_Womb_Aditi.json');
+// fetchRange(8, 22, 2, 11, './slokas_Bali_Vamana.json');
+// fetchRange(8, 22, 20, 20, './slokas_Vindhyavali_Vamana.json');
+// fetchRange(8, 22, 21, 23, './slokas_Brahma_Vamana.json');
+// fetchRange(8, 23, 6, 8, './slokas_Prahlada_Vamana.json');
+// fetchRange(8, 24, 27, 30, './slokas_Satyavrata_Matsya_1.json');
+// fetchRange(8, 24, 46, 53, './slokas_Satyavrata_Matsya_2.json');
+
+// // CANTO 9
+// fetchRange(9, 5, 3, 11, './slokas_Ambarisha_Sudarshana.json');
+// fetchRange(9, 8, 21, 26, './slokas_Anshuman_Kapila.json');
+// fetchRange(9, 11, 6, 7, './slokas_Brahmanas_Rama.json');
+
+// // CANTO 10 (only new/missing or range-corrected)
+// fetchRange(10, 3, 13, 22, './slokas_Vasudeva_Krishna.json');
+// fetchRange(10, 3, 24, 31, './slokas_Devaki_Krishna.json');
+// fetchRange(10, 16, 56, 59, './slokas_Kaliya_Naga.json');
+// fetchRange(10, 19, 9, 10, './slokas_Cowherd_Boys.json');
+// fetchRange(10, 21, 7, 19, './slokas_Venu_Geet.json');
+// fetchRange(10, 23, 29, 30, './slokas_Wives_Brahmanas.json');
+// fetchRange(10, 23, 50, 50, './slokas_Brahmanas_Krishna.json');
+// fetchRange(10, 27, 19, 21, './slokas_Surabhi_Cow.json');
+// fetchRange(10, 28, 5, 8, './slokas_Varuna_Krishna.json');
+// fetchRange(10, 29, 31, 41, './slokas_Gopis_Rasa_Sthali.json');
+// fetchRange(10, 35, 2, 25, './slokas_Gopis_Pastimes.json');
+// fetchRange(10, 37, 10, 23, './slokas_Narada_Muni_10.json');
+// fetchRange(10, 39, 19, 30, './slokas_Gopis_Crying.json');
+// fetchRange(10, 47, 12, 21, './slokas_Bhramara_Gita.json');
+// fetchRange(10, 47, 58, 63, './slokas_Uddhava_Gopis.json');
+// fetchRange(10, 48, 17, 27, './slokas_Akrura_Mathura.json');
+// fetchRange(10, 52, 37, 43, './slokas_Rukmini_Letter.json');
+// fetchRange(10, 59, 25, 31, './slokas_Bhumi_Devi.json');
+// fetchRange(10, 60, 34, 46, './slokas_Rukmini_Krita_Stava.json');
+// fetchRange(10, 63, 25, 28, './slokas_Shiva_Jvara.json');
+// fetchRange(10, 63, 34, 45, './slokas_Shiva_Krishna.json');
+// fetchRange(10, 64, 26, 29, './slokas_King_Nriga.json');
+// fetchRange(10, 65, 28, 29, './slokas_Yamuna_Balarama.json');
+// fetchRange(10, 69, 17, 18, './slokas_Narada_Muni_10_1.json');
+// fetchRange(10, 69, 38, 39, './slokas_Narada_Muni_10_2.json');
+// fetchRange(10, 70, 25, 30, './slokas_Jailed_Kings.json');
+// fetchRange(10, 73, 8, 16, './slokas_Kings_Released.json');
+// fetchRange(10, 74, 2, 5, './slokas_Yudhishthira_Krishna.json');
+// fetchRange(10, 84, 16, 26, './slokas_Sages_Kurukshetra.json');
+// fetchRange(10, 85, 3, 20, './slokas_Vasudeva_Krishna_Balarama.json');
+// fetchRange(10, 85, 23, 39, './slokas_Devaki_Krishna_Balarama.json');
+// fetchRange(10, 85, 39, 46, './slokas_King_Bali.json');
+// fetchRange(10, 86, 31, 36, './slokas_Bahulasva.json');
+// fetchRange(10, 86, 44, 49, './slokas_Shrutadeva.json');
+// fetchRange(10, 87, 14, 41, './slokas_Personified_Vedas.json');
+// fetchRange(10, 89, 58, 59, './slokas_Mahavishnu_Krishna_Arjuna.json');
+// fetchRange(10, 90, 47, 50, './slokas_Sukadeva_Summarization.json');
+
+// // CANTO 11
+// fetchRange(11, 4, 10, 11, './slokas_Demigods_Nara_Narayana_11.json');
+// fetchRange(11, 6, 7, 19, './slokas_Brahma_Demigods_Supreme_11.json');
+// fetchRange(11, 29, 49, 49, './slokas_Sukadeva_Krishna_11.json');
+// fetchRange(11, 30, 43, 43, './slokas_Daruka_Krishna_11.json');
+
+// // CANTO 12
+// fetchRange(12, 8, 40, 49, './slokas_Markandeya_Nara_Narayana_12.json');
+// fetchRange(12, 10, 2, 2, './slokas_Markandeya_12.json');
+// fetchRange(12, 10, 16, 17, './slokas_Markandeya_Shiva_12_1.json');
+// fetchRange(12, 10, 28, 34, './slokas_Markandeya_Shiva_12_2.json');
+// // === END AUTO-GENERATED ===
+
+// // // Prayers by the Citizens of Dvārakā
+// // fetchRange(1, 11, 6, 10, './slokas_Citizens_of_Dwaraka.json');
+
+// // // Prayers by Lord Brahmā to Śrī Garbhodakaśāyī Viṣṇu
+// // fetchRange(3, 9, 1, 25, './slokas_Brahma_Garbhodakasayi.json');
+
+// // // Prayers to Lord Varāha by Ṛṣis
+// // fetchRange(3, 13, 34, 45, './slokas_Rishis_Varaha.json');
+
+// // // Prayers to Lord Viṣṇu by Sanakādi Ṛṣis at the Gate of Vaikuṇṭhaloka
+// // fetchRange(3, 15, 46, 50, './slokas_Sanakadi_Vaikuntha.json');
+
+// // // Prayers to Lord Varaha by Demigods
+// // fetchRange(3, 19, 30, 30, './slokas_Demigods_Varaha.json');
