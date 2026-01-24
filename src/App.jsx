@@ -451,6 +451,15 @@ function App() {
                     setShowContactUs(true);
                     setSelectedPrayer(null);
                     setSelectedSlokaIdx(null);
+                    // Close sidebar on mobile
+                    const sidebar = document.getElementById('sidebarOffcanvas');
+                    if (sidebar) {
+                      sidebar.classList.remove('show');
+                      sidebar.style.visibility = 'hidden';
+                      sidebar.style.transform = 'translateX(-100%)';
+                      sidebar.style.display = 'none';
+                      document.body.style.overflow = '';
+                    }
                   }}
                 >
                   📧 Contact Us

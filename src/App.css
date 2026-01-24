@@ -185,6 +185,57 @@
     left: 87%;
     top: 1.2rem;
     transform: translateX(-50%);
+  @media (max-width: 400px) {
+    .prayer-header, .prayer-title, .prayer-name, .prayer-section-title, h1, h2, h3 {
+      font-size: 1.1rem !important;
+      line-height: 1.2;
+      text-align: center;
+    }
+    .sloka-number, .dropdown, .prayer-dropdown, .prayer-section-dropdown {
+      font-size: 0.95rem !important;
+      padding: 4px 8px !important;
+      margin: 2px 0 !important;
+      min-width: 80px;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+    .prayer-header-row, .prayer-header {
+      flex-direction: column !important;
+      align-items: stretch !important;
+      gap: 4px;
+    }
+    .prayer-header {
+      padding: 6px 0 !important;
+    }
+    .prayer-logo {
+      width: 38px !important;
+      height: 38px !important;
+    }
+    .search-bar, .search-input {
+      font-size: 0.95rem !important;
+      padding: 4px 8px !important;
+    }
+    .prayer-dropdown, .prayer-section-dropdown {
+      width: 100% !important;
+      margin-bottom: 4px;
+    }
+    .sloka-number {
+      width: 100% !important;
+      margin-bottom: 4px;
+    }
+    .prayer-title {
+      font-size: 1.15rem !important;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+    .prayer-section-title {
+      font-size: 1.05rem !important;
+      margin-bottom: 2px;
+    }
+    .translation, .sloka-text, .sloka-roman {
+      font-size: 1rem !important;
+    }
+  }
     font-size: 1.2rem;
     margin: 0 0 10.2rem 0;
     text-align: center;
