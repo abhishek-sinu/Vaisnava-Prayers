@@ -171,7 +171,7 @@ export const slokas = {
   "Harinā-guḥya Prayers by Prajāpati Dakṣa": dakshaHarinaGuhyaSlokas,
   "Prayers by Demigods to the Supreme Lord": demigodsSupremeSlokas,
   "Prayers by Demigods to the Supreme Lord after His Appearance": demigodsAppearanceSlokas,
-  "prayers by vritrasura": vritrasuraSlokas,
+  "Prayers by Vritrasura": vritrasuraSlokas,
   "Prayers by Nārada Muni (6.16.18–25)": naradaMuniSlokas,
   "Citraketu Stotra": citraketuStotraSlokas,
   "Prayers by King Citraketu": kingCitraketuSlokas,
