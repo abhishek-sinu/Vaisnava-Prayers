@@ -188,7 +188,7 @@ export const prayers = [
   link: "https://vedabase.io/en/library/sb/6/9/31/"
 },
 {
-  title: "Prayers by Vṛtrāsura",
+  title: "prayers by vritrasura",
   reference: "6.11.23–6.11.27",
   link: "https://vedabase.io/en/library/sb/6/11/23/"
 },

@@ -118,6 +118,7 @@ import markandeyaShiva12_2Slokas from '../slokas_Markandeya_Shiva_12_2.json' ass
 
 // Helper: Normalize prayer titles for robust matching
 export function normalizePrayerTitle(title) {
+  if (!title) return '';
   return title
     .toLowerCase()
     .normalize('NFD')
@@ -170,7 +171,7 @@ export const slokas = {
   "Harinā-guḥya Prayers by Prajāpati Dakṣa": dakshaHarinaGuhyaSlokas,
   "Prayers by Demigods to the Supreme Lord": demigodsSupremeSlokas,
   "Prayers by Demigods to the Supreme Lord after His Appearance": demigodsAppearanceSlokas,
-  "Prayers by Vṛtrāsura": vritrasuraSlokas,
+  "prayers by vritrasura": vritrasuraSlokas,
   "Prayers by Nārada Muni (6.16.18–25)": naradaMuniSlokas,
   "Citraketu Stotra": citraketuStotraSlokas,
   "Prayers by King Citraketu": kingCitraketuSlokas,
